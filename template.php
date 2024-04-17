@@ -15,12 +15,7 @@ foreach (glob(path_to_theme('gin') . '/includes/*.php') as $file) {
  * Implements hook_preprocess_layout().
  */
 function gin_preprocess_layout(&$variables) {
-  $current_path = current_path();
-  $node_edit_pages = array(
-    'node/*/edit',
-    'node/add/*',
-  );
-  if (backdrop_match_path($current_path, implode("\n", $node_edit_pages)) && (theme_get_setting('edit_form_sidebar', 'gin'))) {
+  if (gin_content_form_paths()) {
     $variables['classes'][] = 'edit-form--sidebar';
   }
   if (config_get('admin_bar.settings', 'position_fixed')) {
@@ -313,20 +308,63 @@ function gin_css_alter(&$css) {
  * Changes vertical tabs to container.
  */
 function gin_form_node_form_alter(&$form, &$form_state, $form_id) {
+  _gin_convert_to_sidebar_edit_form($form);
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for taxonomy_form_term.
+ *
+ * Changes vertical tabs to container.
+ */
+function gin_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
+  _gin_convert_to_sidebar_edit_form($form);
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for user_profile_form.
+ *
+ * Changes vertical tabs to container.
+ */
+function gin_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
+  _gin_convert_to_sidebar_edit_form($form);
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for user_register_form.
+ *
+ * Changes vertical tabs to container.
+ */
+function gin_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+  _gin_convert_to_sidebar_edit_form($form);
+}
+
+/**
+ * Helper function to convert an edit form to use the sidebar edit.
+ */
+function _gin_convert_to_sidebar_edit_form(&$form) {
   if (theme_get_setting('edit_form_sidebar', 'gin')) {
+    $first_key = '';
+    $first_weight = 999;
     foreach (element_children($form) as $key) {
       if (!empty($form[$key]['#group']) && $form[$key]['#group'] == 'additional_settings') {
           $form[$key]['#collapsed'] = TRUE;
+          $form[$key]['#collapsible'] = TRUE;
+          if ($form[$key]['#weight'] < $first_weight) {
+            $first_weight = $form[$key]['#weight'];
+            $first_key = $key;
+          }
         }
     }
-    $form['options']['#collapsed'] = FALSE;
+    $form[$first_key]['#collapsed'] = FALSE;
     $form['additional_settings']['#type'] = 'fieldset';
-    $form['additional_settings']['#attributes']['class'][] = 'node-edit-settings';
+    $form['additional_settings']['#attributes']['class'][] = 'content-edit-settings';
+    $form_id = backdrop_html_class($form['#form_id']);
+    backdrop_add_js(array('Gin' => array('sidebar_form_id' => $form_id)), 'setting');
     $form['#attached']['js'][] = backdrop_get_path('theme', 'gin') . '/dist/js/edit_form.js';
     $form['#attached']['css'][] = backdrop_get_path('theme', 'gin') . '/dist/css/components/sidebar.css';
     $form['#attached']['js'][] = backdrop_get_path('theme', 'gin') . '/dist/js/sidebar.js';
+    $form['#attached']['css'][] = backdrop_get_path('theme', 'gin') . '/dist/css/components/edit_form.css';
   }
-  $form['#attached']['css'][] = backdrop_get_path('theme', 'gin') . '/dist/css/components/edit_form.css';
 }
 
 /**
@@ -635,4 +673,46 @@ function gin_form_element($variables) {
   $output .= "</div>\n";
 
   return $output;
+}
+
+/**
+ * Custom function to determine if we are viewing a content edit form.
+ * Other modules can add or alter the paths that are considered content forms:
+ *  - hook_gin_content_form_paths
+ *  - gin_content_form_paths_alter
+ *
+ * @return bool
+ *  TRUE if we are viewing a content edit form that should use the sidebar.
+ */
+function gin_content_form_paths() {
+  // This is only relevant if the sidebar is turned on.
+  if (!theme_get_setting('edit_form_sidebar', 'gin')) {
+    return FALSE;
+  }
+  else {
+    $is_content_form = FALSE;
+    $current_path = current_path();
+    $sidebar_edit_paths_cached = cache_get('gin_content_form_paths');
+    if (empty($sidebar_edit_paths_cached)) {
+      $sidebar_edit_paths = array(
+        'node/*/edit',
+        'node/add/*',
+        'taxonomy/term/*/edit',
+        'admin/structure/taxonomy/*/add',
+        'admin/people/create',
+        'user/*/edit',
+      );
+      $additional_paths = module_invoke_all('gin_content_form_paths');
+      $sidebar_edit_paths = array_merge($additional_paths, $sidebar_edit_paths);
+
+      // Allow alteration of the paths.
+      backdrop_alter('gin_content_form_paths', $sidebar_edit_paths);
+      cache_set('gin_content_form_paths', $sidebar_edit_paths);
+    }
+    else {
+      $sidebar_edit_paths = $sidebar_edit_paths_cached->data;
+    }
+    $is_content_form = backdrop_match_path($current_path, implode("\n", $sidebar_edit_paths));
+    return $is_content_form;
+  }
 }
