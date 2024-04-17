@@ -342,7 +342,7 @@ function gin_form_user_register_form_alter(&$form, &$form_state, $form_id) {
  * Helper function to convert an edit form to use the sidebar edit.
  */
 function _gin_convert_to_sidebar_edit_form(&$form) {
-  if (theme_get_setting('edit_form_sidebar', 'gin')) {
+  if (gin_content_form_paths()) {
     $first_key = '';
     $first_weight = 999;
     foreach (element_children($form) as $key) {

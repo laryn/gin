@@ -11,7 +11,7 @@ $experimental_label = ' <span class="gin-experimental-flag">Experimental</span>'
 $beta_label = ' <span class="gin-beta-flag">Beta</span>';
 $new_label = ' <span class="gin-new-flag">New</span>';
 
-if (module_exists('tonic')) {
+if (FALSE && module_exists('tonic')) {
   $form['tonic'] = [
     '#type' => 'container',
     '#attributes' => [

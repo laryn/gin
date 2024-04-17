@@ -50,7 +50,7 @@ function gin_preprocess_page(&$variables) {
   $variables['classes'][] = 'gin--horizontal-toolbar';
 
   // Node add or edit.
-  if (theme_get_setting('edit_form_sidebar', 'gin') || (arg(0) == 'node' && (arg(1) == 'add' || arg(2) == 'edit'))) {
+  if (gin_content_form_paths()) {
     $variables['classes'][] = 'gin--edit-form';
   }
 
