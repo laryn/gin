@@ -749,11 +749,6 @@ body:not(.toolbar-tray-open) .layout-container {
   border-bottom: 1px solid var(--gin-border-color);
 }
 
-details summary {
-  padding: var(--gin-spacing-m);
-  background-color: rgba(230, 228, 223, .2);
-}
-
 .form--inline,
 [data-drupal-selector*=-bulk-form],
 .layout-region-node-footer__content {
@@ -4294,6 +4289,87 @@ a.button.button--danger:active:before {
 
 hr {
   margin: var(--gin-spacing-xl) 0;
+}
+
+details {
+  border: 1px solid var(--gin-border-color);
+  border-radius: var(--gin-border-m);
+  box-shadow: none;
+  margin: 0 0 var(--gin-spacing-xs) 0;
+}
+
+details summary {
+  position: relative;
+  width: calc(100% - 2px - var(--gin-spacing-l) - var(--gin-spacing-xxl));
+  min-width: calc(100% - 2px - var(--gin-spacing-l) - var(--gin-spacing-xxl));
+  border-radius: var(--gin-border-m);
+  border-top: 1px solid var(--gin-border-color);
+  border-left: 1px solid var(--gin-border-color);
+  border-right: 1px solid var(--gin-border-color);
+}
+
+[dir="ltr"] details summary {
+  padding: var(--gin-spacing-m) var(--gin-spacing-l) var(--gin-spacing-m) var(--gin-spacing-xxl);
+}
+
+[dir="rtl"] details summary {
+  padding: var(--gin-spacing-m) var(--gin-spacing-xxl) var(--gin-spacing-m) var(--gin-spacing-l);
+}
+
+details summary:hover {
+  background: var(--gin-color-primary-light-hover);
+}
+
+details summary::marker {
+  display: none;
+  content: "";
+}
+
+details summary::before {
+  top: 50%;
+  background: var(--gin-color-text);
+  -webkit-mask-image: url("../../media/sprite.svg#handle-view");
+          mask-image: url("../../media/sprite.svg#handle-view");
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+          mask-position: center center;
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  display: inline-block;
+  width: var(--gin-spacing-m);
+  height: var(--gin-spacing-m);
+  margin-top: calc(var(--gin-spacing-m) / -2);
+  content: "";
+  position: absolute;
+  text-align: center;
+  transition: transform var(--gin-transition);
+}
+
+[dir="ltr"] details summary::before {
+  transform: rotate(90deg);
+  left: 1.125rem;
+}
+
+[dir="rtl"] details summary::before {
+  transform: rotate(-90deg);
+  right: 1.125rem;
+}
+
+details[open] summary {
+  border-radius: var(--gin-border-m) var(--gin-border-m) 0 0;
+}
+
+[dir="ltr"] details[open] summary::before {
+  transform: rotate(-90deg);
+}
+
+[dir="rtl"] details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+details .details-child-wrapper {
+  padding: var(--gin-spacing-m) var(--gin-spacing-l);
 }
 
 .admin-list {
