@@ -642,7 +642,7 @@ tr.admin-bar-tweak-permissions-processed td.module {
   border-radius: 2em;
   margin: -4px 0 -5px;
   text-align: center;
-  background-color: var(--gin-error-color);
+  background-color: var(--gin-color-danger);
   line-height: 1;
 }
 
