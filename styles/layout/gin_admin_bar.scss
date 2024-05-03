@@ -38,6 +38,10 @@
   margin: 0;
   z-index: 999;
 
+  li span.admin-bar-link-icon {
+    display: none;
+  }
+
   .gin--dark-mode & {
     background: var(--gin-bg-layer);
   }

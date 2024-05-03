@@ -47,6 +47,10 @@
   text-align: right;
 }
 
+#admin-bar li span.admin-bar-link-icon {
+  display: none;
+}
+
 .gin--dark-mode #admin-bar {
   background: var(--gin-bg-layer);
 }
