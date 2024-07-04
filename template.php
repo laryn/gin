@@ -308,7 +308,9 @@ function gin_css_alter(&$css) {
  * Changes vertical tabs to container.
  */
 function gin_form_node_form_alter(&$form, &$form_state, $form_id) {
-  _gin_convert_to_sidebar_edit_form($form);
+  if (empty($form_state['input']['dialogOptions'])) {
+    _gin_convert_to_sidebar_edit_form($form);
+  }
 }
 
 /**
@@ -317,7 +319,9 @@ function gin_form_node_form_alter(&$form, &$form_state, $form_id) {
  * Changes vertical tabs to container.
  */
 function gin_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
-  _gin_convert_to_sidebar_edit_form($form);
+  if (empty($form_state['input']['dialogOptions'])) {
+    _gin_convert_to_sidebar_edit_form($form);
+  }
 }
 
 /**
@@ -326,7 +330,9 @@ function gin_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
  * Changes vertical tabs to container.
  */
 function gin_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
-  _gin_convert_to_sidebar_edit_form($form);
+  if (empty($form_state['input']['dialogOptions'])) {
+    _gin_convert_to_sidebar_edit_form($form);
+  }
 }
 
 /**
@@ -335,7 +341,9 @@ function gin_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
  * Changes vertical tabs to container.
  */
 function gin_form_user_register_form_alter(&$form, &$form_state, $form_id) {
-  _gin_convert_to_sidebar_edit_form($form);
+  if (empty($form_state['input']['dialogOptions'])) {
+    _gin_convert_to_sidebar_edit_form($form);
+  }
 }
 
 /**
