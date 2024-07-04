@@ -766,7 +766,17 @@ tr:hover .diff-deletedline {
   background: var(--gin-bg-layer4);
 }
 
-
 .tree-grid button:focus {
   background-color: var(--gin-bg-layer3);
+}
+
+/* Installer overrides */
+.installer-manager-update-form .update-security.odd:not(:hover),
+.block-dashboard-updates .update-security.odd:not(:hover) {
+  background-color: var(--gin-bg-danger-light);
+}
+
+.installer-manager-update-form .update-security:not(:hover),
+.block-dashboard-updates .update-security:not(:hover) {
+  color: var(--gin-color-danger);
 }
