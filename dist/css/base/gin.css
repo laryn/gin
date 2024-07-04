@@ -1218,6 +1218,10 @@ body:not(.toolbar-tray-open) .layout-container {
   padding: var(--gin-spacing-m);
 }
 
+.views-ui-display-tab-bucket.overridden .views-ui-display-tab-bucket__title {
+  font-style: italic;
+}
+
 .views-ui-display-tab-bucket h3 {
   background-color: transparent;
 }
@@ -6296,6 +6300,18 @@ tr:hover .diff-deletedline {
 
 .tree-grid button:focus {
   background-color: var(--gin-bg-layer3);
+}
+
+/* Installer overrides */
+
+.installer-manager-update-form .update-security.odd:not(:hover),
+.block-dashboard-updates .update-security.odd:not(:hover) {
+  background-color: var(--gin-bg-danger-light);
+}
+
+.installer-manager-update-form .update-security:not(:hover),
+.block-dashboard-updates .update-security:not(:hover) {
+  color: var(--gin-color-danger);
 }
 
 @keyframes gin-throbber {
