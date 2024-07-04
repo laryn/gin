@@ -117,7 +117,7 @@
         Backdrop.ginAccent.setCustomFocusColor(focusColorSetting);
       });
 
-      // Watch Hight contrast mode setting has changed.
+      // Watch High contrast mode setting has changed.
       document.querySelector('input[name="high_contrast_mode"]').addEventListener('change', e => {
         const highContrastMode = e.currentTarget.matches(':checked');
 
