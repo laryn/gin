@@ -751,6 +751,11 @@ function gin_content_form_paths() {
  * @see hook_gin_ignore_sticky_form_actions
  */
 function gin_ignore_sticky_form_actions() {
-  $exclude_form_ids = module_invoke_all('gin_ignore_sticky_form_actions');
+  $exclude_form_ids = array(
+    'layout-block-configure-form',
+    'layout-title-settings-form',
+    'layout-configure-region-page',
+  );
+  $exclude_form_ids += module_invoke_all('gin_ignore_sticky_form_actions');
   return $exclude_form_ids;
 }

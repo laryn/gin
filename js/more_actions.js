@@ -18,7 +18,7 @@
         // Sync form ID.
         // Backdrop.ginStickyFormActions.updateFormId(newParent, $(this).attr('id'));
         $('.form-actions input', this).attr('form', actionsFormId);
-        $('.block-page-title-block').append($('.form-actions', this));
+        $('body > .layout > .region-sticky .block-page-title-block').append($('.form-actions', this));
 
         // Move focus to sticky header.
         // Backdrop.ginStickyFormActions.moveFocus(newParent, $(this).attr('id'));

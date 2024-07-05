@@ -8,7 +8,7 @@ $ = jQuery, Backdrop.behaviors.ginFormActions = {
   init: function(context, settings) {
     const actionsFormId = settings.Gin.actions_form_id;
     $("div:not(.ui-dialog-content) > #" + actionsFormId).once("ginEditForm").each((function() {
-      $(".form-actions input", this).attr("form", actionsFormId), $(".block-page-title-block").append($(".form-actions", this));
+      $(".form-actions input", this).attr("form", actionsFormId), $("body > .layout > .region-sticky .block-page-title-block").append($(".form-actions", this));
     })), $(".gin-more-actions__trigger").once("ginMoreActionsToggle").each((function(el) {
       el.addEventListener("click", (e => {
         e.preventDefault(), Backdrop.ginStickyFormActions.toggleMoreActions(), document.addEventListener("click", this.closeMoreActionsOnClickOutside, !1);
