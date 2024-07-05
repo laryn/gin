@@ -1,4 +1,5 @@
 .button,
+.project__action_button,
 .dropbutton__item:first-of-type > *,
 .dropbutton__toggle {
   font-size: var(--gin-font-size-s);
@@ -30,6 +31,7 @@
 
 .button,
 .form-actions .button,
+.project__action_button,
 .action-link--icon-trash.action-link {
   font-size: var(--gin-font-size-s);
   padding: calc(var(--gin-spacing-s) - 2px) var(--gin-spacing-m);
@@ -66,11 +68,13 @@ input.button {
 }
 
 .button.button--small {
-  padding: calc(var(--gin-spacing-xxs) + 2px) var(--gin-spacing-m);
+  font-size: var(--gin-font-size-xxs);
+  padding: calc(var(--gin-spacing-xxs) + 2px) var(--gin-spacing-s);
   border-radius: var(--gin-border-s);
 }
 
 .button.button--extrasmall {
+  font-size: var(--gin-font-size-xxs);
   padding: var(--gin-spacing-xxs) var(--gin-spacing-s);
   border-radius: var(--gin-border-s);
 }
@@ -86,7 +90,9 @@ a.button {
 
 }
 
+#edit-submit.form-submit,
 a.button-primary,
+a.button-primary:not(:focus)
 .ief-entity-submit {
   background: var(--gin-color-primary);
   box-shadow: .1em .25em .5em var(--gin-color-primary-light);

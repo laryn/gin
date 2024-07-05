@@ -183,14 +183,30 @@ function gin_library_info() {
     'gin_edit_form' => array(
       'title' => 'Edit form',
       'version' => BACKDROP_VERSION,
-      'js' => array(
-        $basethemeurl . '/dist/js/edit_form.js' => array(),
-      ),
       'css' => array(
         $basethemeurl . '/dist/css/components/edit_form.css' => array(),
       ),
       'dependencies' => array(
         array('gin', 'gin_once'),
+        array('gin', 'gin_more_actions'),
+        array('gin', 'gin_sidebar'),
+      ),
+    ),
+    'gin_sidebar' => array(
+      'title' => 'Sidebar edit UI',
+      'version' => BACKDROP_VERSION,
+      'js' => array(
+        $basethemeurl . '/dist/js/sidebar.js' => array(),
+      ),
+    ),
+    'gin_more_actions' => array(
+      'title' => 'Sticky actions',
+      'version' => BACKDROP_VERSION,
+      'js' => array(
+        $basethemeurl . '/dist/js/more_actions.js' => array(),
+      ),
+      'css' => array(
+        $basethemeurl . '/dist/css/components/more_actions.css' => array(),
       ),
     ),
     'gin_contextual_links' => array(

@@ -780,3 +780,7 @@ tr:hover .diff-deletedline {
 .block-dashboard-updates .update-security:not(:hover) {
   color: var(--gin-color-danger);
 }
+
+.preview {
+  background-color: transparent;
+}

@@ -13,10 +13,12 @@ function ginInitDarkmode() {
 
 ginInitDarkmode();
 
-// GinDarkMode is not set yet.
+// GinDarkMode is not set yet or config changes detected.
 window.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('Backdrop.gin.darkmode')) {
-    localStorage.setItem('Backdrop.gin.darkmode', Backdrop.settings.gin.darkmode);
+  if (
+    !localStorage.getItem('Backdrop.gin.darkmode')
+  ) {
+    localStorage.setItem('Backdrop.gin.darkmode', 1);
     ginInitDarkmode();
   }
 });
@@ -55,33 +57,38 @@ window.addEventListener('DOMContentLoaded', () => {
 //   }
 // }
 
-// Sidebar check.
-// if (localStorage.getItem('Backdrop.gin.sidebarExpanded.desktop')) {
-//   const style = document.createElement('style');
-//   const className = 'gin-sidebar-inline-styles';
-//   style.className = className;
+// Sidebar checks.
+if (localStorage.getItem('Backdrop.gin.sidebarWidth')) {
+  const sidebarWidth = localStorage.getItem('Backdrop.gin.sidebarWidth');
+  document.documentElement.style.setProperty('--gin-sidebar-width', sidebarWidth);
+}
 
-//   if (window.innerWidth < 1024 || localStorage.getItem('Backdrop.gin.sidebarExpanded.desktop') === 'false') {
-//     style.innerHTML = `
-//     body {
-//       --gin-sidebar-offset: 0px;
-//       padding-inline-end: 0;
-//       transition: none;
-//     }
+if (localStorage.getItem('Drupal.gin.sidebarExpanded.desktop')) {
+  const style = document.createElement('style');
+  const className = 'gin-sidebar-inline-styles';
+  style.className = className;
 
-//     .layout-region-content-secondary {
-//       transform: translateX(var(--gin-sidebar-width, 360px));
-//       transition: none;
-//     }
+  if (window.innerWidth < 1024 || localStorage.getItem('Drupal.gin.sidebarExpanded.desktop') === 'false') {
+    style.innerHTML = `
+    body {
+      --gin-sidebar-offset: 0px;
+      padding-inline-end: 0;
+      transition: none;
+    }
 
-//     .meta-sidebar__overlay {
-//       display: none;
-//     }
-//     `;
+    .layout-region-node-secondary {
+      transform: translateX(var(--gin-sidebar-width, 360px));
+      transition: none;
+    }
 
-//     const scriptTag = document.querySelector('script');
-//     scriptTag.parentNode.insertBefore(style, scriptTag);
-//   } else if (document.getElementsByClassName(className).length > 0) {
-//     document.getElementsByClassName(className)[0].remove();
-//   }
-// }
+    .meta-sidebar__overlay {
+      display: none;
+    }
+    `;
+
+    const scriptTag = document.querySelector('script');
+    scriptTag.parentNode.insertBefore(style, scriptTag);
+  } else if (document.getElementsByClassName(className).length > 0) {
+    document.getElementsByClassName(className)[0].remove();
+  }
+}

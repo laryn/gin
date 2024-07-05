@@ -24,6 +24,20 @@ function gin_preprocess_layout(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for form.
+ */
+function gin_preprocess_form(&$variables) {
+  if (theme_get_setting('sticky_action_buttons', 'gin')) {
+    $exclude_form_ids = gin_ignore_sticky_form_actions();
+    $form_id = backdrop_html_class($variables['element']['#form_id']);
+    if (!in_array($form_id, $exclude_form_ids)) {
+      backdrop_add_js(array('Gin' => array('actions_form_id' => $form_id)), 'setting');
+      backdrop_add_library('gin', 'gin_more_actions', TRUE);
+    }
+  }
+}
+
+/**
  * Overrides theme_breadcrumb().
  */
 function gin_breadcrumb($variables) {
@@ -367,11 +381,17 @@ function _gin_convert_to_sidebar_edit_form(&$form) {
     $form['additional_settings']['#type'] = 'fieldset';
     $form['additional_settings']['#attributes']['class'][] = 'content-edit-settings';
     $form_id = backdrop_html_class($form['#form_id']);
-    backdrop_add_js(array('Gin' => array('sidebar_form_id' => $form_id)), 'setting');
-    $form['#attached']['js'][] = backdrop_get_path('theme', 'gin') . '/dist/js/edit_form.js';
+    backdrop_add_js(array('Gin' => array(
+      'sidebar_form_id' => $form_id,
+      'actions_form_id' => $form_id,
+    )), 'setting');
+    $form['#attached']['library'][] = ['gin', 'gin_edit_form'];
+    /*
+    $form['#attached']['js'][] = backdrop_get_path('theme', 'gin') . '/dist/js/more_actions.js';
+    $form['#attached']['css'][] = backdrop_get_path('theme', 'gin') . '/dist/css/components/edit_form.css';
     $form['#attached']['css'][] = backdrop_get_path('theme', 'gin') . '/dist/css/components/sidebar.css';
     $form['#attached']['js'][] = backdrop_get_path('theme', 'gin') . '/dist/js/sidebar.js';
-    $form['#attached']['css'][] = backdrop_get_path('theme', 'gin') . '/dist/css/components/edit_form.css';
+    */
   }
 }
 
@@ -723,4 +743,14 @@ function gin_content_form_paths() {
     $is_content_form = backdrop_match_path($current_path, implode("\n", $sidebar_edit_paths));
     return $is_content_form;
   }
+}
+
+/**
+ * Return any excluded form IDs for the sticky action buttons.
+ *
+ * @see hook_gin_ignore_sticky_form_actions
+ */
+function gin_ignore_sticky_form_actions() {
+  $exclude_form_ids = module_invoke_all('gin_ignore_sticky_form_actions');
+  return $exclude_form_ids;
 }

@@ -34,16 +34,16 @@
 .field--type-link,
 .field--type-smartdate {
   .gin-layer-wrapper > .tabledrag-toggle-weight-wrapper {
-    @include mq(small) {
+    @include mq(medium) {
       position: relative;
       z-index: 1;
-      margin-right: var(--gin-spacing-m);
       margin-bottom: calc(var(--gin-spacing-xxl) * -1);
       pointer-events: none;
     }
 
     .action-link {
       pointer-events: all;
+      background-color: var(--gin-bg-layer);
     }
   }
 }
@@ -57,6 +57,10 @@ a.tabledrag-handle {
     mask-size: 16px 16px;
 
     @media (forced-colors: none) {
+      background-color: var(--gin-color-text-light);
+    }
+
+    @supports (-webkit-mask-image: url()) and (mask-composite: source-over) {
       background-color: var(--gin-color-text-light);
     }
   }
@@ -100,11 +104,6 @@ a.tabledrag-handle {
   }
 }
 
-.tabledrag-leaf td,
-.tabledrag-cell {
-  vertical-align: top;
-}
-
 .tabledrag-cell {
   padding-top: var(--gin-spacing-density-m);
   padding-bottom: var(--gin-spacing-density-m);
@@ -112,12 +111,6 @@ a.tabledrag-handle {
   &-content {
     margin-top: var(--gin-spacing-xs);
     margin-bottom: var(--gin-spacing-xs);
-  }
-
-  &-content__item {
-    .checkbox-toggle:hover {
-      cursor: pointer;
-    }
   }
 }
 
@@ -129,4 +122,8 @@ a.tabledrag-handle {
 
 .field-plugin-settings-edit-wrapper + a {
   margin-top: var(--gin-spacing-s);
+}
+
+.table-file-multiple-widget .tabledrag-cell-content {
+  display: flex;
 }

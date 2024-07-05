@@ -169,6 +169,14 @@ $form['edit_form_sidebar'] = [
   '#default_value' => theme_get_setting('edit_form_sidebar', 'gin'),
 ];
 
+// Sticky action toggle.
+$form['sticky_action_buttons'] = [
+  '#type' => 'checkbox',
+  '#title' => t('Enable sticky action buttons') . $beta_label . $new_label,
+  '#description' => t('Displays all actions of the form in the sticky header.'),
+  '#default_value' => theme_get_setting('sticky_action_buttons', 'gin'),
+];
+
 // Toolbar setting.
 // $form['classic_toolbar'] = [
 //   '#type' => 'radios',
@@ -187,7 +195,7 @@ $form['edit_form_sidebar'] = [
 // Layout density setting.
 $form['layout_density'] = [
   '#type' => 'radios',
-  '#title' => t('Layout density') . $beta_label,
+  '#title' => t('Layout density'),
   '#description' => t('Changes the layout density for tables in the admin interface.'),
   '#default_value' => theme_get_setting('layout_density', 'gin'),
   '#options' => [
