@@ -26,7 +26,7 @@ function gin_preprocess_page(&$variables) {
   $basethemeurl = backdrop_get_path('theme', 'gin');
 
   // Darkmode
-  if (theme_get_setting('enable_darkmode')) {
+  if (theme_get_setting('enable_darkmode', 'gin') == 1 ) {
     $variables['html_classes'][] = 'gin--dark-mode';
   }
 

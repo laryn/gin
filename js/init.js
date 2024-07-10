@@ -1,3 +1,22 @@
+/* To inject this as early as possible
+ * we use native JS instead of Drupal's behaviors.
+*/
+
+// Legacy Check: Transform old localStorage items to newer ones.
+function checkLegacy() {
+  if (localStorage.getItem('GinDarkMode')) {
+    localStorage.setItem('Backdrop.gin.darkmode', localStorage.getItem('GinDarkMode'));
+    localStorage.removeItem('GinDarkMode');
+  }
+
+  if (localStorage.getItem('GinSidebarOpen')) {
+    localStorage.setItem('Backdrop.gin.toolbarExpanded', localStorage.getItem('GinSidebarOpen'));
+    localStorage.removeItem('GinSidebarOpen');
+  }
+}
+
+checkLegacy();
+
 // Darkmode Check.
 function ginInitDarkmode() {
   const darkModeClass = 'gin--dark-mode';
@@ -16,9 +35,10 @@ ginInitDarkmode();
 // GinDarkMode is not set yet or config changes detected.
 window.addEventListener('DOMContentLoaded', () => {
   if (
-    !localStorage.getItem('Backdrop.gin.darkmode')
+    !localStorage.getItem('Backdrop.gin.darkmode') ||
+    (Backdrop.settings.gin.darkmode != localStorage.getItem('Backdrop.gin.darkmode'))
   ) {
-    localStorage.setItem('Backdrop.gin.darkmode', 1);
+    localStorage.setItem('Backdrop.gin.darkmode', Backdrop.settings.gin.darkmode);
     ginInitDarkmode();
   }
 });
@@ -63,12 +83,12 @@ if (localStorage.getItem('Backdrop.gin.sidebarWidth')) {
   document.documentElement.style.setProperty('--gin-sidebar-width', sidebarWidth);
 }
 
-if (localStorage.getItem('Drupal.gin.sidebarExpanded.desktop')) {
+if (localStorage.getItem('Backdrop.gin.sidebarExpanded.desktop')) {
   const style = document.createElement('style');
   const className = 'gin-sidebar-inline-styles';
   style.className = className;
 
-  if (window.innerWidth < 1024 || localStorage.getItem('Drupal.gin.sidebarExpanded.desktop') === 'false') {
+  if (window.innerWidth < 1024 || localStorage.getItem('Backdrop.gin.sidebarExpanded.desktop') === 'false') {
     style.innerHTML = `
     body {
       --gin-sidebar-offset: 0px;

@@ -126,7 +126,7 @@
       });
 
       // Watch save
-      document.querySelector('#edit-submit').addEventListener('click', () => {
+      document.querySelector('.system-theme-settings #edit-submit').addEventListener('click', () => {
         // Reset darkmode localStorage.
         localStorage.setItem('Backdrop.gin.darkmode', '');
       });
@@ -135,7 +135,6 @@
     darkmode: function (darkmodeParam = null) {
       const darkmodeEnabled = darkmodeParam != null ? darkmodeParam : Backdrop.settings.gin.darkmode;
       const darkmodeClass = Backdrop.settings.gin.darkmode_class;
-
       if (
         darkmodeEnabled == 1 ||
         (darkmodeEnabled === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)
