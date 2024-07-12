@@ -47,7 +47,7 @@
       })), document.querySelector('input[name="high_contrast_mode"]').addEventListener("change", (e => {
         const highContrastMode = e.currentTarget.matches(":checked");
         this.setHighContrastMode(highContrastMode);
-      })), document.querySelector(".system-theme-settings #edit-submit").addEventListener("click", (() => {
+      })), document.querySelector("#edit-submit").addEventListener("click", (() => {
         localStorage.setItem("Backdrop.gin.darkmode", "");
       }));
     },

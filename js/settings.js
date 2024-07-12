@@ -126,7 +126,7 @@
       });
 
       // Watch save
-      document.querySelector('.system-theme-settings #edit-submit').addEventListener('click', () => {
+      document.querySelector('#edit-submit').addEventListener('click', () => {
         // Reset darkmode localStorage.
         localStorage.setItem('Backdrop.gin.darkmode', '');
       });
