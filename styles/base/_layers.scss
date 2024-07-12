@@ -11,7 +11,7 @@
 }
 
 .gin-layer-wrapper,
-.gin-layer-wrapper-shadow,
+table.update,.gin-layer-wrapper-shadow,
 .block-system > form,
 .views-exposed-form.views-exposed-form,
 .views-edit-view,
@@ -21,8 +21,7 @@
 .admin.my-workbench,
 .media-library-views-form,
 .user-admin-permissions,
-.field-config-form
-{
+.field-config-form {
   margin-top: 0;
   box-shadow: var(--gin-shadow-l1);
   border-radius: var(--gin-border-l);
@@ -37,6 +36,7 @@
 }
 
 .gin-layer-wrapper,
+table.update,
 .block-system-main-block > form,
 .views-exposed-form.views-exposed-form,
 .views-edit-view,
@@ -45,8 +45,7 @@
 .admin.my-workbench,
 .media-library-views-form,
 .user-admin-permissions,
-.field-config-form
-{
+.field-config-form {
   width: 100%;
   padding: var(--gin-spacing-s);
   background: var(--gin-bg-layer);
@@ -69,6 +68,7 @@
 .gin-layer-wrapper {
 
   &:has(> .view),
+  &:has(> table.update),
   &:has(> .views-admin),
   &:has(> .admin-list),
   &:has(> .admin) {

@@ -427,7 +427,7 @@ body:not(.toolbar-tray-open) .layout-container {
 }
 
 .gin-layer-wrapper,
-.gin-layer-wrapper-shadow,
+table.update, .gin-layer-wrapper-shadow,
 .block-system > form,
 .views-exposed-form.views-exposed-form,
 .views-edit-view,
@@ -444,7 +444,7 @@ body:not(.toolbar-tray-open) .layout-container {
 }
 
 .gin--dark-mode .gin-layer-wrapper,
-.gin--dark-mode .gin-layer-wrapper-shadow,
+.gin--dark-mode table.update, .gin--dark-mode .gin-layer-wrapper-shadow,
 .gin--dark-mode .block-system > form,
 .gin--dark-mode .views-exposed-form.views-exposed-form,
 .gin--dark-mode .views-edit-view,
@@ -459,7 +459,7 @@ body:not(.toolbar-tray-open) .layout-container {
 }
 
 .gin--high-contrast-mode .gin-layer-wrapper,
-.gin--high-contrast-mode .gin-layer-wrapper-shadow,
+.gin--high-contrast-mode table.update, .gin--high-contrast-mode .gin-layer-wrapper-shadow,
 .gin--high-contrast-mode .block-system > form,
 .gin--high-contrast-mode .views-exposed-form.views-exposed-form,
 .gin--high-contrast-mode .views-edit-view,
@@ -474,6 +474,7 @@ body:not(.toolbar-tray-open) .layout-container {
 }
 
 .gin-layer-wrapper,
+table.update,
 .block-system-main-block > form,
 .views-exposed-form.views-exposed-form,
 .views-edit-view,
@@ -492,6 +493,7 @@ body:not(.toolbar-tray-open) .layout-container {
 
 @media (min-width: 48em) {
   .gin-layer-wrapper,
+  table.update,
   .block-system-main-block > form,
   .views-exposed-form.views-exposed-form,
   .views-edit-view,
@@ -507,6 +509,8 @@ body:not(.toolbar-tray-open) .layout-container {
 
 .gin-layer-wrapper > .form-wrapper:first-of-type .form-item,
 .gin-layer-wrapper .layout-region-node-main > .form-wrapper:first-of-type .form-item,
+table.update > .form-wrapper:first-of-type .form-item,
+table.update .layout-region-node-main > .form-wrapper:first-of-type .form-item,
 .block-system-main-block > form > .form-wrapper:first-of-type .form-item,
 .block-system-main-block > form .layout-region-node-main > .form-wrapper:first-of-type .form-item,
 .views-exposed-form.views-exposed-form > .form-wrapper:first-of-type .form-item,
@@ -528,7 +532,7 @@ body:not(.toolbar-tray-open) .layout-container {
   margin-top: 0;
 }
 
-.gin-layer-wrapper:has(> .view), .gin-layer-wrapper:has(> .views-admin), .gin-layer-wrapper:has(> .admin-list), .gin-layer-wrapper:has(> .admin) {
+.gin-layer-wrapper:has(> .view), .gin-layer-wrapper:has(> table.update), .gin-layer-wrapper:has(> .views-admin), .gin-layer-wrapper:has(> .admin-list), .gin-layer-wrapper:has(> .admin) {
   border: none;
   padding: 0;
   background: none;
@@ -2205,7 +2209,8 @@ a.tabledrag-handle:hover .handle {
 .form-number,
 .form-date,
 .form-time,
-.form-search {
+.form-search,
+.form-url {
   color: var(--gin-color-text);
   line-height: var(--input-line-height);
   padding: calc(var(--input-padding-vertical) - 1px) var(--input-padding-horizontal);
@@ -2226,7 +2231,8 @@ a.tabledrag-handle:hover .handle {
 .form-number:hover,
 .form-date:hover,
 .form-time:hover,
-.form-search:hover {
+.form-search:hover,
+.form-url:hover {
   border-color: var(--gin-color-text);
   box-shadow: inset 0 0 0 1px var(--gin-color-text);
 }
@@ -2245,7 +2251,9 @@ a.tabledrag-handle:hover .handle {
 .form-time--small,
 .form-time--extrasmall,
 .form-search--small,
-.form-search--extrasmall {
+.form-search--extrasmall,
+.form-url--small,
+.form-url--extrasmall {
   font-size: var(--gin-font-size-s);
   line-height: 1.5;
   border-radius: var(--gin-border-s);
@@ -2265,7 +2273,9 @@ a.tabledrag-handle:hover .handle {
 .form-time[disabled],
 .form-time[disabled]:hover,
 .form-search[disabled],
-.form-search[disabled]:hover {
+.form-search[disabled]:hover,
+.form-url[disabled],
+.form-url[disabled]:hover {
   cursor: not-allowed;
   color: var(--gin-color-disabled);
   background-color: var(--gin-color-disabled-bg) !important;
@@ -2280,7 +2290,8 @@ a.tabledrag-handle:hover .handle {
 .gin--dark-mode .form-number,
 .gin--dark-mode .form-date,
 .gin--dark-mode .form-time,
-.gin--dark-mode .form-search {
+.gin--dark-mode .form-search,
+.gin--dark-mode .form-url {
   color-scheme: dark;
 }
 
@@ -4691,25 +4702,33 @@ table.diff tr .diff-addedline .diffchange {
   color: var(--gin-color-button-text);
 }
 
-.project-update__version {
+.update {
+  border-collapse: inherit;
+}
+
+.update td.report-icon {
+  display: none;
+}
+
+.update .version {
   padding-block: 0;
 }
 
-[dir="ltr"] .project-update__version-links {
+[dir="ltr"] .update .version-links {
   padding-right: 0;
 }
 
-[dir="rtl"] .project-update__version-links {
+[dir="rtl"] .update .version-links {
   padding-left: 0;
 }
 
-.project-update__details {
+.update .project-info {
   font-size: var(--gin-font-size-s);
   color: var(--gin-color-text-light);
   padding: 0;
 }
 
-.project-update__status .gin-status-icon {
+.update__status .gin-status-icon {
   width: 1rem;
   height: 1rem;
   display: inline-block;
@@ -4721,147 +4740,187 @@ table.diff tr .diff-addedline .diffchange {
           mask-size: 100% 100%;
 }
 
-.project-update__status .gin-status-icon img {
+.update__status .gin-status-icon img {
   display: none;
 }
 
-.project-update__status--security-error {
+.update__status--security-error {
   color: var(--gin-color-danger);
 }
 
-.color-success,
-tr.color-success,
-.color-checked,
-.drupal-upgrade-status-summary-form tr.no-known-error {
+table.update {
+  border-spacing: 0;
+}
+
+table.update .color-success,
+table.update tr.color-success,
+table.update tr.report-status .update-data,
+table.update .color-checked,
+table.update .drupal-upgrade-status-summary-form tr.no-known-error {
   background-color: transparent;
 }
 
-[dir="ltr"] .color-success,
-[dir="ltr"] tr.color-success,
-[dir="ltr"] .color-checked,
-[dir="ltr"] .drupal-upgrade-status-summary-form tr.no-known-error {
+[dir="ltr"] table.update .color-success,
+[dir="ltr"] table.update tr.color-success,
+[dir="ltr"] table.update tr.report-status .update-data,
+[dir="ltr"] table.update .color-checked,
+[dir="ltr"] table.update .drupal-upgrade-status-summary-form tr.no-known-error {
   border-left: var(--gin-border-xs) solid var(--gin-color-green);
 }
 
-[dir="rtl"] .color-success,
-[dir="rtl"] tr.color-success,
-[dir="rtl"] .color-checked,
-[dir="rtl"] .drupal-upgrade-status-summary-form tr.no-known-error {
+[dir="rtl"] table.update .color-success,
+[dir="rtl"] table.update tr.color-success,
+[dir="rtl"] table.update tr.report-status .update-data,
+[dir="rtl"] table.update .color-checked,
+[dir="rtl"] table.update .drupal-upgrade-status-summary-form tr.no-known-error {
   border-right: var(--gin-border-xs) solid var(--gin-color-green);
 }
 
-.color-success:hover, .color-success:active, .color-success:focus,
-tr.color-success:hover,
-tr.color-success:active,
-tr.color-success:focus,
-.color-checked:hover,
-.color-checked:active,
-.color-checked:focus,
-.drupal-upgrade-status-summary-form tr.no-known-error:hover,
-.drupal-upgrade-status-summary-form tr.no-known-error:active,
-.drupal-upgrade-status-summary-form tr.no-known-error:focus {
+table.update .color-success:hover, table.update .color-success:active, table.update .color-success:focus,
+table.update tr.color-success:hover,
+table.update tr.color-success:active,
+table.update tr.color-success:focus,
+table.update tr.report-status .update-data:hover,
+table.update tr.report-status .update-data:active,
+table.update tr.report-status .update-data:focus,
+table.update .color-checked:hover,
+table.update .color-checked:active,
+table.update .color-checked:focus,
+table.update .drupal-upgrade-status-summary-form tr.no-known-error:hover,
+table.update .drupal-upgrade-status-summary-form tr.no-known-error:active,
+table.update .drupal-upgrade-status-summary-form tr.no-known-error:focus {
   background-color: var(--gin-bg-green-light);
 }
 
-.color-warning,
-tr.color-warning,
-.upgrade-status-next-step-remove tr,
-.drupal-upgrade-status-summary-form tr.known-warnings {
+table.update .color-warning,
+table.update tr.color-warning,
+table.update tr.report-warning .update-data,
+table.update tr.report-unknown .update-data,
+table.update .upgrade-status-next-step-remove tr,
+table.update .drupal-upgrade-status-summary-form tr.known-warnings {
   background-color: transparent;
 }
 
-[dir="ltr"] .color-warning,
-[dir="ltr"] tr.color-warning,
-[dir="ltr"] .upgrade-status-next-step-remove tr,
-[dir="ltr"] .drupal-upgrade-status-summary-form tr.known-warnings {
+[dir="ltr"] table.update .color-warning,
+[dir="ltr"] table.update tr.color-warning,
+[dir="ltr"] table.update tr.report-warning .update-data,
+[dir="ltr"] table.update tr.report-unknown .update-data,
+[dir="ltr"] table.update .upgrade-status-next-step-remove tr,
+[dir="ltr"] table.update .drupal-upgrade-status-summary-form tr.known-warnings {
   border-left: var(--gin-border-xs) solid var(--gin-color-warning);
 }
 
-[dir="rtl"] .color-warning,
-[dir="rtl"] tr.color-warning,
-[dir="rtl"] .upgrade-status-next-step-remove tr,
-[dir="rtl"] .drupal-upgrade-status-summary-form tr.known-warnings {
+[dir="rtl"] table.update .color-warning,
+[dir="rtl"] table.update tr.color-warning,
+[dir="rtl"] table.update tr.report-warning .update-data,
+[dir="rtl"] table.update tr.report-unknown .update-data,
+[dir="rtl"] table.update .upgrade-status-next-step-remove tr,
+[dir="rtl"] table.update .drupal-upgrade-status-summary-form tr.known-warnings {
   border-right: var(--gin-border-xs) solid var(--gin-color-warning);
 }
 
-.color-warning:hover, .color-warning:active, .color-warning:focus,
-tr.color-warning:hover,
-tr.color-warning:active,
-tr.color-warning:focus,
-.upgrade-status-next-step-remove tr:hover,
-.upgrade-status-next-step-remove tr:active,
-.upgrade-status-next-step-remove tr:focus,
-.drupal-upgrade-status-summary-form tr.known-warnings:hover,
-.drupal-upgrade-status-summary-form tr.known-warnings:active,
-.drupal-upgrade-status-summary-form tr.known-warnings:focus {
+table.update .color-warning:hover, table.update .color-warning:active, table.update .color-warning:focus,
+table.update tr.color-warning:hover,
+table.update tr.color-warning:active,
+table.update tr.color-warning:focus,
+table.update tr.report-warning .update-data:hover,
+table.update tr.report-warning .update-data:active,
+table.update tr.report-warning .update-data:focus,
+table.update tr.report-unknown .update-data:hover,
+table.update tr.report-unknown .update-data:active,
+table.update tr.report-unknown .update-data:focus,
+table.update .upgrade-status-next-step-remove tr:hover,
+table.update .upgrade-status-next-step-remove tr:active,
+table.update .upgrade-status-next-step-remove tr:focus,
+table.update .drupal-upgrade-status-summary-form tr.known-warnings:hover,
+table.update .drupal-upgrade-status-summary-form tr.known-warnings:active,
+table.update .drupal-upgrade-status-summary-form tr.known-warnings:focus {
   background-color: var(--gin-bg-warning-light);
 }
 
-.gin--dark-mode .color-warning:hover, .gin--dark-mode .color-warning:active, .gin--dark-mode .color-warning:focus,
-.gin--dark-mode tr.color-warning:hover,
-.gin--dark-mode tr.color-warning:active,
-.gin--dark-mode tr.color-warning:focus,
-.gin--dark-mode .upgrade-status-next-step-remove tr:hover,
-.gin--dark-mode .upgrade-status-next-step-remove tr:active,
-.gin--dark-mode .upgrade-status-next-step-remove tr:focus,
-.gin--dark-mode .drupal-upgrade-status-summary-form tr.known-warnings:hover,
-.gin--dark-mode .drupal-upgrade-status-summary-form tr.known-warnings:active,
-.gin--dark-mode .drupal-upgrade-status-summary-form tr.known-warnings:focus {
+.gin--dark-mode table.update .color-warning:hover, .gin--dark-mode table.update .color-warning:active, .gin--dark-mode table.update .color-warning:focus,
+.gin--dark-mode table.update tr.color-warning:hover,
+.gin--dark-mode table.update tr.color-warning:active,
+.gin--dark-mode table.update tr.color-warning:focus,
+.gin--dark-mode table.update tr.report-warning .update-data:hover,
+.gin--dark-mode table.update tr.report-warning .update-data:active,
+.gin--dark-mode table.update tr.report-warning .update-data:focus,
+.gin--dark-mode table.update tr.report-unknown .update-data:hover,
+.gin--dark-mode table.update tr.report-unknown .update-data:active,
+.gin--dark-mode table.update tr.report-unknown .update-data:focus,
+.gin--dark-mode table.update .upgrade-status-next-step-remove tr:hover,
+.gin--dark-mode table.update .upgrade-status-next-step-remove tr:active,
+.gin--dark-mode table.update .upgrade-status-next-step-remove tr:focus,
+.gin--dark-mode table.update .drupal-upgrade-status-summary-form tr.known-warnings:hover,
+.gin--dark-mode table.update .drupal-upgrade-status-summary-form tr.known-warnings:active,
+.gin--dark-mode table.update .drupal-upgrade-status-summary-form tr.known-warnings:focus {
   color: var(--gin-color-warning);
 }
 
-.color-error,
-tr.color-error,
-.drupal-upgrade-status-summary-form tr.known-errors {
+table.update .color-error,
+table.update tr.color-error,
+table.update tr.report-error .update-data,
+table.update .drupal-upgrade-status-summary-form tr.known-errors {
   background-color: transparent;
 }
 
-[dir="ltr"] .color-error,
-[dir="ltr"] tr.color-error,
-[dir="ltr"] .drupal-upgrade-status-summary-form tr.known-errors {
+[dir="ltr"] table.update .color-error,
+[dir="ltr"] table.update tr.color-error,
+[dir="ltr"] table.update tr.report-error .update-data,
+[dir="ltr"] table.update .drupal-upgrade-status-summary-form tr.known-errors {
   border-left: var(--gin-border-xs) solid var(--gin-color-danger);
 }
 
-[dir="rtl"] .color-error,
-[dir="rtl"] tr.color-error,
-[dir="rtl"] .drupal-upgrade-status-summary-form tr.known-errors {
+[dir="rtl"] table.update .color-error,
+[dir="rtl"] table.update tr.color-error,
+[dir="rtl"] table.update tr.report-error .update-data,
+[dir="rtl"] table.update .drupal-upgrade-status-summary-form tr.known-errors {
   border-right: var(--gin-border-xs) solid var(--gin-color-danger);
 }
 
-.color-error:hover, .color-error:active, .color-error:focus,
-tr.color-error:hover,
-tr.color-error:active,
-tr.color-error:focus,
-.drupal-upgrade-status-summary-form tr.known-errors:hover,
-.drupal-upgrade-status-summary-form tr.known-errors:active,
-.drupal-upgrade-status-summary-form tr.known-errors:focus {
+table.update .color-error:hover, table.update .color-error:active, table.update .color-error:focus,
+table.update tr.color-error:hover,
+table.update tr.color-error:active,
+table.update tr.color-error:focus,
+table.update tr.report-error .update-data:hover,
+table.update tr.report-error .update-data:active,
+table.update tr.report-error .update-data:focus,
+table.update .drupal-upgrade-status-summary-form tr.known-errors:hover,
+table.update .drupal-upgrade-status-summary-form tr.known-errors:active,
+table.update .drupal-upgrade-status-summary-form tr.known-errors:focus {
   background-color: var(--gin-bg-danger-light);
 }
 
-.gin--dark-mode .color-error:hover, .gin--dark-mode .color-error:active, .gin--dark-mode .color-error:focus,
-.gin--dark-mode tr.color-error:hover,
-.gin--dark-mode tr.color-error:active,
-.gin--dark-mode tr.color-error:focus,
-.gin--dark-mode .drupal-upgrade-status-summary-form tr.known-errors:hover,
-.gin--dark-mode .drupal-upgrade-status-summary-form tr.known-errors:active,
-.gin--dark-mode .drupal-upgrade-status-summary-form tr.known-errors:focus {
+.gin--dark-mode table.update .color-error:hover, .gin--dark-mode table.update .color-error:active, .gin--dark-mode table.update .color-error:focus,
+.gin--dark-mode table.update tr.color-error:hover,
+.gin--dark-mode table.update tr.color-error:active,
+.gin--dark-mode table.update tr.color-error:focus,
+.gin--dark-mode table.update tr.report-error .update-data:hover,
+.gin--dark-mode table.update tr.report-error .update-data:active,
+.gin--dark-mode table.update tr.report-error .update-data:focus,
+.gin--dark-mode table.update .drupal-upgrade-status-summary-form tr.known-errors:hover,
+.gin--dark-mode table.update .drupal-upgrade-status-summary-form tr.known-errors:active,
+.gin--dark-mode table.update .drupal-upgrade-status-summary-form tr.known-errors:focus {
   color: var(--gin-color-danger);
 }
 
-.color-success,
-.color-warning,
-.color-error,
-.color-checked {
+table.update .color-success,
+table.update .color-warning,
+table.update tr.report-status,
+table.update tr.report-warning,
+table.update tr.report-error,
+table.update .color-error,
+table.update .color-checked {
   color: var(--gin-color-text);
   box-sizing: border-box;
 }
 
-.update {
+ß .update {
   margin: 0;
   border: 0 none;
 }
 
-.update tbody tr:last-child {
+ß .update tbody tr:last-child {
   border-bottom: 0 none;
 }
 

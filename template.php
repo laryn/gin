@@ -168,6 +168,56 @@ function gin_menu_local_tasks($variables) {
 }
 
 /**
+ * Overrides theme_update_status_label().
+ *
+ * Returns HTML for a label to display for a project's update status.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - status: The integer code for a project's current update status.
+ *
+ * @see update_calculate_project_data()
+ * @ingroup themeable
+ */
+function gin_update_status_label($variables) {
+  $output = '';
+  $statuses = array(
+    UPDATE_NOT_SECURE => array(
+      'label' => t('Security update required!'),
+      'class' => 'gin-status--danger',
+    ),
+    UPDATE_REVOKED => array(
+      'label' => t('Revoked!'),
+      'class' => 'gin-status--danger',
+    ),
+    UPDATE_NOT_SUPPORTED => array(
+      'label' => t('Not supported!'),
+      'class' => 'gin-status--danger',
+    ),
+    UPDATE_UNKNOWN => array(
+      'label' => t('No available releases found'),
+      'class' => 'gin-status--warning',
+    ),
+    UPDATE_NOT_CURRENT => array(
+      'label' => t('Update available'),
+      'class' => 'gin-status--warning',
+    ),
+    UPDATE_CURRENT => array(
+      'label' => t('Up to date'),
+      'class' => 'gin-status--success',
+    ),
+  );
+  $status = $variables['status'];
+  if (!empty($statuses[$status])) {
+    $output .= '<div class="update__status gin-status ' . $statuses[$status]['class'] . '">';
+    $output .= '<span class="gin-status-icon"></span>';
+    $output .= '<span>' . $statuses[$status]['label'] . '</span>';
+    $output .= '</div>';
+  }
+  return $output;
+}
+
+/**
  * Implements hook_preprocess_block().
  *
  * Add classes for Gin theming.

@@ -1,13 +1,19 @@
-.project-update {
-  &__version {
+.update {
+  border-collapse: inherit;
+
+  td.report-icon {
+    display: none;
+  }
+
+  .version {
     padding-block: 0;
   }
 
-  &__version-links {
+  .version-links {
     padding-right: 0;
   }
 
-  &__details {
+  .project-info {
     font-size: var(--gin-font-size-s);
     color: var(--gin-color-text-light);
     padding: 0;
@@ -33,59 +39,75 @@
   }
 }
 
-.color-success,
-tr.color-success,
-.color-checked,
-.drupal-upgrade-status-summary-form tr.no-known-error
-{
-  border-left: var(--gin-border-xs) solid var(--gin-color-green);
-  background-color: transparent;
+table.update {
+  border-spacing: 0;
 
-  &:hover, &:active, &:focus {
-    background-color: var(--gin-bg-green-light);
-  }
-}
+  .color-success,
+  tr.color-success,
+  tr.report-status .update-data,
+  .color-checked,
+  .drupal-upgrade-status-summary-form tr.no-known-error {
+    border-left: var(--gin-border-xs) solid var(--gin-color-green);
+    background-color: transparent;
 
-.color-warning,
-tr.color-warning,
-.upgrade-status-next-step-remove tr,
-.drupal-upgrade-status-summary-form tr.known-warnings {
-  border-left: var(--gin-border-xs) solid var(--gin-color-warning);
-  background-color: transparent;
-
-  &:hover, &:active, &:focus {
-    background-color: var(--gin-bg-warning-light);
-
-    .gin--dark-mode & {
-      color: var(--gin-color-warning);
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: var(--gin-bg-green-light);
     }
   }
-}
 
-.color-error,
-tr.color-error,
-.drupal-upgrade-status-summary-form tr.known-errors {
-  border-left: var(--gin-border-xs) solid var(--gin-color-danger);
-  background-color: transparent;
+  .color-warning,
+  tr.color-warning,
+  tr.report-warning .update-data,
+  tr.report-unknown .update-data,
+  .upgrade-status-next-step-remove tr,
+  .drupal-upgrade-status-summary-form tr.known-warnings {
+    border-left: var(--gin-border-xs) solid var(--gin-color-warning);
+    background-color: transparent;
 
-  &:hover, &:active, &:focus {
-    background-color: var(--gin-bg-danger-light);
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: var(--gin-bg-warning-light);
 
-    .gin--dark-mode & {
-      color: var(--gin-color-danger);
+      .gin--dark-mode & {
+        color: var(--gin-color-warning);
+      }
     }
+  }
+
+  .color-error,
+  tr.color-error,
+  tr.report-error .update-data,
+  .drupal-upgrade-status-summary-form tr.known-errors {
+    border-left: var(--gin-border-xs) solid var(--gin-color-danger);
+    background-color: transparent;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: var(--gin-bg-danger-light);
+
+      .gin--dark-mode & {
+        color: var(--gin-color-danger);
+      }
+    }
+  }
+
+  .color-success,
+  .color-warning,
+  tr.report-status,
+  tr.report-warning,
+  tr.report-error,
+  .color-error,
+  .color-checked {
+    color: var(--gin-color-text);
+    box-sizing: border-box;
   }
 }
 
-.color-success,
-.color-warning,
-.color-error,
-.color-checked {
-  color: var(--gin-color-text);
-  box-sizing: border-box;
-}
-
-.update {
+ß .update {
   margin: 0;
   border: 0 none;
 
