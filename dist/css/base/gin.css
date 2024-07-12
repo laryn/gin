@@ -1052,6 +1052,7 @@ table.update .layout-region-node-main > .form-wrapper:first-of-type .form-item,
 
 .views-display-top > .tabs {
   flex-flow: row wrap;
+  flex-grow: 1;
 }
 
 .views-display-top__extra-actions-wrapper {

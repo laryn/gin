@@ -218,6 +218,7 @@
 
   > .tabs {
     flex-flow: row wrap;
+    flex-grow: 1;
   }
 
   // #3186729: Drupal 9.1 fix
