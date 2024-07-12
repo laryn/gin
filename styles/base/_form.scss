@@ -24,7 +24,8 @@
 .form-number,
 .form-date,
 .form-time,
-.form-search {
+.form-search,
+.form-url {
   color: var(--gin-color-text);
   line-height: var(--input-line-height);
   padding: calc(var(--input-padding-vertical) - 1px) var(--input-padding-horizontal);
