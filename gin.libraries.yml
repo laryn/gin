@@ -361,7 +361,7 @@ maintenance_page:
 paragraphs:
   css:
     component:
-      dist/css/components/paragraphs.css: { minified: false }
+      dist/css/components/gin_paragraphs.css: { minified: false }
 
 layout_paragraphs:
   css:

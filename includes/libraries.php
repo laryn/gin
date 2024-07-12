@@ -290,7 +290,7 @@ function gin_library_info() {
       'title' => 'Paragraphs',
       'version' => BACKDROP_VERSION,
       'css' => array(
-        $basethemeurl . '/dist/css/components/paragraphs.css' => array(),
+        $basethemeurl . '/dist/css/components/gin_paragraphs.css' => array(),
       ),
     ),
     'gin_webform' => array(

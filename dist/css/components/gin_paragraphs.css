@@ -293,7 +293,8 @@ html[dir="rtl"].js .field--widget-paragraphs th .paragraphs-actions .paragraphs-
   left: var(--gin-spacing-xxs);
 }
 
-.paragraphs-dropdown-actions {
+.paragraphs-dropdown-actions,
+.paragraphs-actions-more .details-child-wrapper {
   color: var(--gin-color-button-text);
   background: var(--gin-bg-layer3);
   border: 0 none;
@@ -301,7 +302,8 @@ html[dir="rtl"].js .field--widget-paragraphs th .paragraphs-actions .paragraphs-
   box-shadow: var(--gin-shadow-l2);
 }
 
-.paragraphs-dropdown-actions .paragraphs-dropdown-action.button {
+.paragraphs-dropdown-actions > .button,
+.paragraphs-actions-more .details-child-wrapper > .button {
   font-size: var(--gin-font-size-xs);
   padding: var(--gin-spacing-xs) var(--gin-spacing-m);
   margin: 0;
@@ -496,5 +498,41 @@ html[dir="rtl"].js .paragraph-type-icon {
 
 .field-widget-paragraphs-embed input.button-danger {
   border-color: var(--gin-color-danger);
+}
+
+.field-widget-paragraphs-embed input.paragraphs-edit-button {
+  margin: var(--gin-spacing-xxxs);
+  padding: var(--gin-spacing-xxxs) var(--gin-spacing-xs);
+}
+
+.inner-actions details.paragraphs-actions-more summary {
+  padding: var(--gin-spacing-s) var(--gin-spacing-m);
+  min-width: auto;
+  width: auto;
+}
+
+.inner-actions details.paragraphs-actions-more summary::before {
+  display: none;
+}
+
+.inner-actions details.paragraphs-actions-more .details-child-wrapper {
+  padding: var(--gin-spacing-xxs);
+  box-shadow: 0 6px 16px var(--gin-border-color-layer);
+  border: 1px solid var(--gin-border-color);
+}
+
+.inner-actions details.paragraphs-actions-more .details-child-wrapper input:first-child,
+.inner-actions details.paragraphs-actions-more .details-child-wrapper input:last-child {
+  margin: 0;
+}
+
+.inner-actions details.paragraphs-actions-more .details-child-wrapper .button-danger {
+  background-color: transparent;
+  color: var(--gin-color-danger);
+}
+
+.inner-actions details.paragraphs-actions-more .details-child-wrapper .button-danger:hover, .inner-actions details.paragraphs-actions-more .details-child-wrapper .button-danger:focus {
+  background-color: var(--gin-color-danger-light);
+  color: var(--gin-color-text);
 }
 

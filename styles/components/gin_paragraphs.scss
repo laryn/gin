@@ -118,6 +118,7 @@
 }
 
 .paragraphs-subform {
+
   .form-item,
   .field--type-text-with-summary .form-item,
   .field--widget-text-textarea .form-item {
@@ -234,14 +235,15 @@ html.js .field--widget-paragraphs th .paragraphs-actions .paragraphs-dropdown {
   right: var(--gin-spacing-xxs);
 }
 
-.paragraphs-dropdown-actions {
+.paragraphs-dropdown-actions,
+.paragraphs-actions-more .details-child-wrapper {
   color: var(--gin-color-button-text);
   background: var(--gin-bg-layer3);
   border: 0 none;
   border-radius: var(--gin-border-xs);
   box-shadow: var(--gin-shadow-l2);
 
-  .paragraphs-dropdown-action.button {
+  > .button {
     font-size: var(--gin-font-size-xs);
     padding: var(--gin-spacing-xs) var(--gin-spacing-m);
     margin: 0;
@@ -416,5 +418,45 @@ html.js .paragraph-type-icon {
 
   input.button-danger {
     border-color: var(--gin-color-danger);
+  }
+}
+
+.field-widget-paragraphs-embed input.paragraphs-edit-button {
+  margin: var(--gin-spacing-xxxs);
+  padding: var(--gin-spacing-xxxs) var(--gin-spacing-xs);
+}
+
+.inner-actions {
+  details.paragraphs-actions-more {
+    summary {
+      padding: var(--gin-spacing-s) var(--gin-spacing-m);
+      min-width: auto;
+      width: auto;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .details-child-wrapper {
+      padding: var(--gin-spacing-xxs);
+      box-shadow: 0 6px 16px var(--gin-border-color-layer);
+      border: 1px solid var(--gin-border-color);
+
+      input:first-child,
+      input:last-child {
+        margin: 0;
+      }
+
+      .button-danger {
+        background-color: transparent;
+        color: var(--gin-color-danger);
+        &:hover,
+        &:focus {
+          background-color: var(--gin-color-danger-light);
+          color: var(--gin-color-text);
+        }
+      }
+    }
   }
 }
