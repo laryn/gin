@@ -9,12 +9,12 @@
   background-color: var(--gin-bg-header);
 }
 
-.installer-browser-install-queue-item a {
+.installer-browser-list-sidebar .installer-browser-install-queue-item a {
   background-image: none;
   padding: var(--gin-spacing-s);
 }
 
-.installer-browser-install-queue-item a::before {
+.installer-browser-list-sidebar .installer-browser-install-queue-item a::before {
   -webkit-mask-image: url("../../media/sprite.svg#remove-view");
           mask-image: url("../../media/sprite.svg#remove-view");
 }
