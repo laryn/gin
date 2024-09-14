@@ -107,14 +107,13 @@
       const hideLabel = Backdrop.t('Hide sidebar panel');
       const sidebarTrigger = document.querySelector('.meta-sidebar__trigger');
 
-      if (sidebarTrigger) {
-        sidebarTrigger.querySelector('span').innerHTML = hideLabel;
-        sidebarTrigger.setAttribute('title', hideLabel);
-        // Below is for Gin tooltip. Uncomment if fixed.
-        // sidebarTrigger.nextSibling.innerHTML = hideLabel;
-        sidebarTrigger.setAttribute('aria-expanded', 'true');
-        sidebarTrigger.classList.add('is-active');
+      sidebarTrigger.querySelector('span').innerHTML = hideLabel;
+      sidebarTrigger.setAttribute('title', hideLabel);
+      if (sidebarTrigger.nextSibling) {
+        sidebarTrigger.nextSibling.innerHTML = hideLabel;
       }
+      sidebarTrigger.setAttribute('aria-expanded', 'true');
+      sidebarTrigger.classList.add('is-active');
 
       $('body').attr('data-meta-sidebar', 'open');
 
@@ -138,14 +137,13 @@
       const showLabel = Backdrop.t('Show sidebar panel');
       const sidebarTrigger = document.querySelector('.meta-sidebar__trigger');
 
-      if (sidebarTrigger) {
-        sidebarTrigger.querySelector('span').innerHTML = showLabel;
-        sidebarTrigger.setAttribute('title', showLabel);
-        // Below is for Gin tooltip. Uncomment if fixed.
-        // sidebarTrigger.nextSibling.innerHTML = showLabel;
-        sidebarTrigger.setAttribute('aria-expanded', 'false');
-        sidebarTrigger.classList.remove('is-active');
+      sidebarTrigger.querySelector('span').innerHTML = showLabel;
+      sidebarTrigger.setAttribute('title', showLabel);
+      if (sidebarTrigger.nextSibling) {
+        sidebarTrigger.nextSibling.innerHTML = showLabel;
       }
+      sidebarTrigger.setAttribute('aria-expanded', 'false');
+      sidebarTrigger.classList.remove('is-active');
 
       $('body').attr('data-meta-sidebar', 'closed');
 

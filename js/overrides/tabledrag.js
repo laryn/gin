@@ -11,6 +11,36 @@
 
 (function ($, Drupal, drupalSettings) {
   /**
+   * Determine if an element is visible.
+   *
+   * @param {HTMLElement} elem
+   *   The element to check.
+   *
+   * @return {boolean}
+   *  True if the element is visible.
+   */
+  Drupal.elementIsVisible = function (elem) {
+    return !!(
+      elem.offsetWidth ||
+      elem.offsetHeight ||
+      elem.getClientRects().length
+    );
+  };
+
+  /**
+   * Determine if an element is hidden.
+   *
+   * @param {HTMLElement} elem
+   *   The element to check.
+   *
+   * @return {boolean}
+   *  True if the element is hidden.
+   */
+  Drupal.elementIsHidden = function (elem) {
+    return !Drupal.elementIsVisible(elem);
+  };
+
+  /**
    * Store the state of weight columns display for all tables.
    *
    * Default value is to hide weight columns.
@@ -198,7 +228,18 @@
         }
       });
     });
+    this.dragOrientation = this.indentEnabled ? 'drag' : 'drag-y';
     if (this.indentEnabled) {
+      // If a tabledrag has indents but only has leaf rows are present, it's not
+      // hierarchical from an end-user point of view.
+      const countNestableRows = $table
+        .find('> tr.draggable, > tbody > tr.draggable')
+        .not('.tabledrag-leaf').length;
+      // There are no rows that accept nesting in this table, show a vertical
+      // drag icon.
+      if (countNestableRows === 0) {
+        this.dragOrientation = 'drag-y';
+      }
       /**
        * Total width of indents, set in makeDraggable.
        *
@@ -225,7 +266,6 @@
         $indentation.get(1).offsetLeft - $indentation.get(0).offsetLeft;
       testRow.remove();
     }
-
     // Make each applicable row draggable.
     // Match immediate children of the parent element to allow nesting.
     $table.find('> tr.draggable, > tbody > tr.draggable').each(function () {
@@ -243,7 +283,8 @@
         this.toggleColumns();
       }.bind(this),
     );
-    if ($table.parents('.gin-table-scroll-wrapper')) {
+
+    if ($table.parents('.gin-table-scroll-wrapper').length > 0) {
       $table.parents('.gin-table-scroll-wrapper').before($toggleWeightWrapper);
     }
     else {
@@ -504,7 +545,10 @@
     // Add a class to the title link.
     $item.find('td:first-of-type').find('a').addClass('menu-item__link');
     // Create the handle.
-    const $handle = $(Drupal.theme('tableDragHandle'));
+    const $handle = $(Drupal.theme('tableDragHandle', this.dragOrientation));
+    if (this.dragOrientation === 'drag-y') {
+      $handle.addClass('tabledrag-handle-y');
+    }
     // Insert the handle after indentations (if any).
     const $indentationLast = $item
       .find('td:first-of-type')
@@ -767,7 +811,7 @@
     $(item).addClass('drag');
 
     // Set the document to use the move cursor during drag.
-    $('body').addClass('drag');
+    $('body').addClass(this.dragOrientation);
     if (self.oldRowElement) {
       $(self.oldRowElement).removeClass('drag-previous');
     }
@@ -899,7 +943,7 @@
     // Functionality specific only to pointerup events.
     if (self.dragObject !== null) {
       self.dragObject = null;
-      $('body').removeClass('drag');
+      $('body').removeClass(self.dragOrientation);
       clearInterval(self.scrollInterval);
     }
   };
@@ -1776,8 +1820,12 @@
        * @return {string}
        *   HTML markup for a tableDrag handle.
        */
-      tableDragHandle() {
-        return `<a href="#" title="${Drupal.t('Drag to re-order')}"
+      tableDragHandle(dragOrientation = 'drag') {
+        const title =
+          dragOrientation === 'drag-y'
+            ? Drupal.t('Change order')
+            : Drupal.t('Move in any direction');
+        return `<a href="#" title="${title}"
         class="tabledrag-handle"><div class="handle"></div></a>`;
       },
     },

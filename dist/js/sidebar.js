@@ -37,10 +37,11 @@
     showSidebar: () => {
       const chooseStorage = window.innerWidth < 1024 ? "Backdrop.gin.sidebarExpanded.mobile" : storageDesktop, hideLabel = Backdrop.t("Hide sidebar panel"), sidebarTrigger = document.querySelector(".meta-sidebar__trigger");
       var _Backdrop$ginCoreNavi;
-      if (sidebarTrigger && (sidebarTrigger.querySelector("span").innerHTML = hideLabel, 
-      sidebarTrigger.setAttribute("title", hideLabel), sidebarTrigger.setAttribute("aria-expanded", "true"), 
-      sidebarTrigger.classList.add("is-active")), $("body").attr("data-meta-sidebar", "open"), 
-      localStorage.setItem(chooseStorage, "true"), window.innerWidth < 1280) if (null === (_Backdrop$ginCoreNavi = Backdrop.ginCoreNavigation) || void 0 === _Backdrop$ginCoreNavi || _Backdrop$ginCoreNavi.collapseToolbar(), 
+      if (sidebarTrigger.querySelector("span").innerHTML = hideLabel, sidebarTrigger.setAttribute("title", hideLabel), 
+      sidebarTrigger.nextSibling && (sidebarTrigger.nextSibling.innerHTML = hideLabel), 
+      sidebarTrigger.setAttribute("aria-expanded", "true"), sidebarTrigger.classList.add("is-active"), 
+      $("body").attr("data-meta-sidebar", "open"), localStorage.setItem(chooseStorage, "true"), 
+      window.innerWidth < 1280) if (null === (_Backdrop$ginCoreNavi = Backdrop.ginCoreNavigation) || void 0 === _Backdrop$ginCoreNavi || _Backdrop$ginCoreNavi.collapseToolbar(), 
       "vertical" === toolbarVariant) Backdrop.ginToolbar.collapseToolbar(); else if ("new" === toolbarVariant) {
         var _Backdrop$behaviors$g;
         null === (_Backdrop$behaviors$g = Backdrop.behaviors.ginNavigation) || void 0 === _Backdrop$behaviors$g || _Backdrop$behaviors$g.collapseSidebar();
@@ -48,8 +49,9 @@
     },
     collapseSidebar: () => {
       const chooseStorage = window.innerWidth < 1024 ? "Backdrop.gin.sidebarExpanded.mobile" : storageDesktop, showLabel = Backdrop.t("Show sidebar panel"), sidebarTrigger = document.querySelector(".meta-sidebar__trigger");
-      sidebarTrigger && (sidebarTrigger.querySelector("span").innerHTML = showLabel, sidebarTrigger.setAttribute("title", showLabel), 
-      sidebarTrigger.setAttribute("aria-expanded", "false"), sidebarTrigger.classList.remove("is-active")), 
+      sidebarTrigger.querySelector("span").innerHTML = showLabel, sidebarTrigger.setAttribute("title", showLabel), 
+      sidebarTrigger.nextSibling && (sidebarTrigger.nextSibling.innerHTML = showLabel), 
+      sidebarTrigger.setAttribute("aria-expanded", "false"), sidebarTrigger.classList.remove("is-active"), 
       $("body").attr("data-meta-sidebar", "closed"), localStorage.setItem(chooseStorage, "false");
     },
     handleResize: function() {

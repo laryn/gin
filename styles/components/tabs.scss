@@ -326,12 +326,15 @@
 
   .horizontal-tabs-pane {
     padding: 0;
-    margin: 0;
     box-shadow: none;
 
     > .details-wrapper {
       margin: 0;
     }
+  }
+
+  .paragraphs-subform .horizontal-tabs-panes {
+    margin-top: var(--gin-spacing-s);
   }
 }
 

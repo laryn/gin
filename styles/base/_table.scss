@@ -1,4 +1,5 @@
 .gin-table-scroll-wrapper {
+  clear: both;
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior-x: contain;
@@ -36,6 +37,7 @@ table.gin--sticky-table-header {
 
 table.sticky-header {
   left: auto !important;
+  min-width: 100%;
   max-width: fit-content;
   background: transparent;
 }
@@ -109,6 +111,7 @@ table {
   }
 
   tr,
+  tr:focus-within,
   .draggable-table.tabledrag-disabled tr {
     color: var(--gin-color-text);
     background-color: transparent;

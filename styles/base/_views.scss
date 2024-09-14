@@ -181,6 +181,10 @@
 .views-live-preview {
   padding: 0;
 
+  .section-title {
+    color: var(--gin-color-text);
+  }
+
   .gin-layer-wrapper {
     border-color: var(--gin-border-color);
   }
@@ -209,7 +213,7 @@
 
 .views-display-top {
   margin: 0;
-  padding: var(--gin-spacing-m);
+  padding-block: var(--gin-spacing-m) var(--gin-spacing-xs);
   background-color: var(--gin-bg-header);
   border: 0 none;
   border-radius: var(--gin-border-l) var(--gin-border-l) 0 0;
@@ -223,7 +227,7 @@
 
   // #3186729: Drupal 9.1 fix
   &__extra-actions-wrapper {
-    margin-bottom: 0;
+    margin-block: 0;
   }
 
   .dropbutton-wrapper {
@@ -292,7 +296,7 @@
     display: inline-block;
 
     &::before {
-      display: none;
+      display: none !important;
     }
 
     .icon.add {
@@ -602,4 +606,14 @@ a.views-field-excluded {
 
 .view-header {
   margin-bottom: var(--gin-spacing-l);
+}
+
+// Disabled
+.views-edit-view.disabled .views-displays,
+.views-edit-view.disabled .views-display-column {
+  background-color: transparent;
+}
+
+.views-edit-view.disabled .views-display-column {
+  opacity: 0.75;
 }

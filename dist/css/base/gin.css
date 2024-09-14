@@ -38,6 +38,10 @@ h3 {
   background: var(--gin-color-primary-light-hover);
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 a {
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -1017,6 +1021,10 @@ table.update .layout-region-node-main > .form-wrapper:first-of-type .form-item,
   padding: 0;
 }
 
+.views-live-preview .section-title {
+  color: var(--gin-color-text);
+}
+
 .views-live-preview .gin-layer-wrapper {
   border-color: var(--gin-border-color);
 }
@@ -1042,7 +1050,7 @@ table.update .layout-region-node-main > .form-wrapper:first-of-type .form-item,
 
 .views-display-top {
   margin: 0;
-  padding: var(--gin-spacing-m);
+  padding-block: var(--gin-spacing-m) var(--gin-spacing-xs);
   background-color: var(--gin-bg-header);
   border: 0 none;
   border-radius: var(--gin-border-l) var(--gin-border-l) 0 0;
@@ -1056,7 +1064,7 @@ table.update .layout-region-node-main > .form-wrapper:first-of-type .form-item,
 }
 
 .views-display-top__extra-actions-wrapper {
-  margin-bottom: 0;
+  margin-block: 0;
 }
 
 .views-display-top .dropbutton-wrapper {
@@ -1140,7 +1148,7 @@ table.update .layout-region-node-main > .form-wrapper:first-of-type .form-item,
 
 #views-display-menu-tabs .add a::before,
 #views-display-menu-tabs li a::before {
-  display: none;
+  display: none !important;
 }
 
 #views-display-menu-tabs .add a .icon.add,
@@ -1471,7 +1479,17 @@ a.views-field-excluded {
   margin-bottom: var(--gin-spacing-l);
 }
 
+.views-edit-view.disabled .views-displays,
+.views-edit-view.disabled .views-display-column {
+  background-color: transparent;
+}
+
+.views-edit-view.disabled .views-display-column {
+  opacity: .75;
+}
+
 .gin-table-scroll-wrapper {
+  clear: both;
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior-x: contain;
@@ -1512,6 +1530,7 @@ table.gin--sticky-table-header tr {
 }
 
 table.sticky-header {
+  min-width: 100%;
   max-width: -moz-fit-content;
   max-width: fit-content;
   background: transparent;
@@ -1593,23 +1612,27 @@ table tbody td {
 }
 
 table tr,
+table tr:focus-within,
 table .draggable-table.tabledrag-disabled tr {
   color: var(--gin-color-text);
   background-color: transparent;
 }
 
 table tr:hover,
+table tr:focus-within:hover,
 table .draggable-table.tabledrag-disabled tr:hover {
   color: var(--gin-color-text);
   background: var(--gin-bg-item);
 }
 
 table tr:not(.header):hover,
+table tr:focus-within:not(.header):hover,
 table .draggable-table.tabledrag-disabled tr:not(.header):hover {
   background: var(--gin-bg-app);
 }
 
 table tr.selected:hover,
+table tr:focus-within.selected:hover,
 table .draggable-table.tabledrag-disabled tr.selected:hover {
   background: transparent;
 }
@@ -2114,6 +2137,11 @@ a.tabledrag-handle:hover .handle {
   }
 }
 
+.tabledrag-handle.tabledrag-handle-y::after {
+  -webkit-mask-image: url("../../media/sprite.svg#drag-y-view");
+          mask-image: url("../../media/sprite.svg#drag-y-view");
+}
+
 .draggable.drag, .draggable.drag:focus {
   background-color: var(--gin-bg-layer2);
 }
@@ -2517,6 +2545,12 @@ a.tabledrag-handle:hover .handle {
   background-color: var(--gin-bg-input);
 }
 
+@media (forced-colors: active) {
+  :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input {
+    border-width: 2px;
+  }
+}
+
 :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input::before {
   position: absolute;
   content: "";
@@ -2539,6 +2573,39 @@ a.tabledrag-handle:hover .handle {
 
 .gin--dark-mode :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input::before {
   background-color: var(--gin-border-color-form-element);
+}
+
+@media (forced-colors: active) {
+  :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input::before {
+    background-color: CanvasText;
+  }
+}
+
+@media (forced-colors: active) {
+  :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: Canvas;
+    -webkit-mask-image: url("../../media/sprite.svg#toggle-unchecked-view");
+            mask-image: url("../../media/sprite.svg#toggle-unchecked-view");
+    -webkit-mask-size: 16px 16px;
+            mask-size: 16px 16px;
+    -webkit-mask-position: 17px 2px;
+            mask-position: 17px 2px;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    transition: transform .3s;
+  }
+
+  [dir="ltr"] :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input::after {
+    transform: translateX(-16px);
+  }
+
+  [dir="rtl"] :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input::after {
+    transform: translateX(16px);
+  }
 }
 
 :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input:disabled {
@@ -2580,6 +2647,37 @@ a.tabledrag-handle:hover .handle {
 
 .gin--high-contrast-mode :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input:checked::before {
   background-color: var(--gin-border-color);
+}
+
+@media (forced-colors: active) {
+  :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input:checked::before {
+    background-color: LinkText !important;
+  }
+
+  [dir="ltr"] :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input:checked::before {
+    padding-left: 8px;
+  }
+
+  [dir="rtl"] :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input:checked::before {
+    padding-right: 8px;
+  }
+}
+
+@media (forced-colors: active) {
+  :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input:checked::after {
+    -webkit-mask-image: url("../../media/sprite.svg#checked-view");
+            mask-image: url("../../media/sprite.svg#checked-view");
+    -webkit-mask-position: 2px 2px;
+            mask-position: 2px 2px;
+  }
+
+  [dir="ltr"] :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input:checked::after {
+    transform: translateX(16px);
+  }
+
+  [dir="rtl"] :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input:checked::after {
+    transform: translateX(-16px);
+  }
 }
 
 :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox input:disabled {
@@ -3492,6 +3590,13 @@ ul .layout-condition a.layout-button-link {
 a.button.button--danger {
   color: var(--gin-color-danger);
   box-shadow: 0 1px 2px var(--gin-color-danger-lightest);
+  min-height: 0;
+}
+
+.action-link--icon-trash.action-link--danger::before,
+.button.button--danger::before,
+a.button.button--danger::before {
+  display: none;
 }
 
 .action-link--icon-trash.action-link--danger, .action-link--icon-trash.action-link--danger:hover, .action-link--icon-trash.action-link--danger:focus, .action-link--icon-trash.action-link--danger:active,
@@ -3506,21 +3611,6 @@ a.button.button--danger:active {
   border-color: var(--gin-color-danger) !important;
 }
 
-.action-link--icon-trash.action-link--danger:before, .action-link--icon-trash.action-link--danger:hover:before, .action-link--icon-trash.action-link--danger:focus:before, .action-link--icon-trash.action-link--danger:active:before,
-.button.button--danger:before,
-.button.button--danger:hover:before,
-.button.button--danger:focus:before,
-.button.button--danger:active:before,
-a.button.button--danger:before,
-a.button.button--danger:hover:before,
-a.button.button--danger:focus:before,
-a.button.button--danger:active:before {
-  background-image: none;
-  background-color: var(--gin-color-danger) !important;
-  -webkit-mask-image: url("../../media/sprite.svg#trash-view");
-          mask-image: url("../../media/sprite.svg#trash-view");
-}
-
 .action-link--icon-trash.action-link--danger:hover, .action-link--icon-trash.action-link--danger:focus, .action-link--icon-trash.action-link--danger:active,
 .button.button--danger:hover,
 .button.button--danger:focus,
@@ -3530,16 +3620,6 @@ a.button.button--danger:focus,
 a.button.button--danger:active {
   color: var(--gin-bg-layer);
   background-color: var(--gin-color-danger);
-}
-
-.action-link--icon-trash.action-link--danger:hover:before, .action-link--icon-trash.action-link--danger:focus:before, .action-link--icon-trash.action-link--danger:active:before,
-.button.button--danger:hover:before,
-.button.button--danger:focus:before,
-.button.button--danger:active:before,
-a.button.button--danger:hover:before,
-a.button.button--danger:focus:before,
-a.button.button--danger:active:before {
-  background-color: var(--gin-bg-layer) !important;
 }
 
 .button-primary.button--danger,
@@ -6382,6 +6462,7 @@ tr:hover .diff-deletedline {
   display: inline-block;
   padding: .125em .75em;
   vertical-align: .125em;
+  border: 1px solid transparent;
   border-radius: var(--gin-border-l);
 }
 
