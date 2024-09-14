@@ -417,6 +417,10 @@
 #admin-bar .dropdown li li li {
   filter: Alpha(opacity=100);
   opacity: 1;
+
+  &.highlight {
+    background-color: var(--gin-color-primary-light);
+  }
 }
 
 /* Second-level lists. */
