@@ -62,12 +62,12 @@
   border-radius: var(--gin-border-m);
 
   &__status-title {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   &__status-icon {
     background-color: transparent;
-    border-right: 0 none;
+    border-inline-end: 0 none;
     box-shadow: none;
 
     &--checked:before,
@@ -87,11 +87,11 @@
 
 .system-status-general-info {
   &__header {
-    margin-bottom: var(--gin-spacing-xs);
+    margin-block-end: var(--gin-spacing-xs);
   }
 
   &__items {
-    border-bottom: 0 none;
+    border-block-end: 0 none;
   }
 
   &__item {
@@ -153,11 +153,11 @@
 }
 
 .cron-description__run-cron {
-  margin-top: var(--gin-spacing-m);
+  margin-block-start: var(--gin-spacing-m);
 }
 
 .system-status-report {
-  margin-top: var(--gin-spacing-l);
+  margin-block-start: var(--gin-spacing-l);
 
   &-counters &-counters__item {
     border: 1px solid var(--gin-border-color-layer);
@@ -180,7 +180,7 @@
     display: inline-block;
     width: 24px;
     height: 24px;
-    margin-right: 10px;
+    margin-inline-end: 10px;
   }
 }
 

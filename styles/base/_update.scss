@@ -10,7 +10,7 @@
   }
 
   .version-links {
-    padding-right: 0;
+    padding-inline-end: 0;
   }
 
   .project-info {
@@ -47,7 +47,7 @@ table.update {
   tr.report-status .update-data,
   .color-checked,
   .drupal-upgrade-status-summary-form tr.no-known-error {
-    border-left: var(--gin-border-xs) solid var(--gin-color-green);
+    border-inline-start: var(--gin-border-xs) solid var(--gin-color-green);
     background-color: transparent;
 
     &:hover,
@@ -63,7 +63,7 @@ table.update {
   tr.report-unknown .update-data,
   .upgrade-status-next-step-remove tr,
   .drupal-upgrade-status-summary-form tr.known-warnings {
-    border-left: var(--gin-border-xs) solid var(--gin-color-warning);
+    border-inline-start: var(--gin-border-xs) solid var(--gin-color-warning);
     background-color: transparent;
 
     &:hover,
@@ -81,7 +81,7 @@ table.update {
   tr.color-error,
   tr.report-error .update-data,
   .drupal-upgrade-status-summary-form tr.known-errors {
-    border-left: var(--gin-border-xs) solid var(--gin-color-danger);
+    border-inline-start: var(--gin-border-xs) solid var(--gin-color-danger);
     background-color: transparent;
 
     &:hover,
@@ -113,14 +113,14 @@ table.update {
 
   tbody {
     tr:last-child {
-      border-bottom: 0 none;
+      border-block-end: 0 none;
     }
   }
 }
 
 .gin-layer-wrapper {
   .responsive-enabled {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 }
 
@@ -134,7 +134,7 @@ table.update {
 
 // fix overflow issue in FF
 .block-system > form .gin-layer-wrapper {
-  padding-bottom: 1px;
+  padding-block-end: 1px;
 }
 
 .compact-link {
@@ -143,5 +143,5 @@ table.update {
 }
 
 #update-status > p {
-  margin-bottom: var(--gin-spacing-xl);
+  margin-block-end: var(--gin-spacing-xl);
 }

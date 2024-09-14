@@ -63,7 +63,7 @@ input.button {
   margin: var(--gin-spacing-xxs);
 
   & + a {
-    margin-left: var(--gin-spacing-xs);
+    margin-inline-start: var(--gin-spacing-xs);
   }
 }
 

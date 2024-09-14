@@ -278,8 +278,8 @@ $media-type: all !default;
 ) {
   body:before {
     background-color: #fcf8e3;
-    border-bottom: 1px solid #fbeed5;
-    border-left: 1px solid #fbeed5;
+    border-block-end: 1px solid #fbeed5;
+    border-inline-start: 1px solid #fbeed5;
     color: #c09853;
     font: small-caption;
     padding: 3px 6px;

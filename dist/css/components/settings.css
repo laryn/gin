@@ -15,16 +15,9 @@
   height: 32px;
   border-radius: 50%;
   top: var(--gin-spacing-m);
+  margin-inline-end: var(--gin-spacing-xs);
   border: 1px solid transparent;
   border-color: transparent;
-}
-
-[dir="ltr"] #edit-preset-accent-color .form-item-preset-accent-color input {
-  margin-right: var(--gin-spacing-xs);
-}
-
-[dir="rtl"] #edit-preset-accent-color .form-item-preset-accent-color input {
-  margin-left: var(--gin-spacing-xs);
 }
 
 #edit-preset-accent-color .form-item-preset-accent-color input, .gin--dark-mode #edit-preset-accent-color .form-item-preset-accent-color input {
@@ -108,14 +101,9 @@
   float: right;
 }
 
-[dir="ltr"] #edit-accent-group .form-type-color,
-[dir="ltr"] #edit-focus-group .form-type-color {
-  margin-right: var(--gin-spacing-xs);
-}
-
-[dir="rtl"] #edit-accent-group .form-type-color,
-[dir="rtl"] #edit-focus-group .form-type-color {
-  margin-left: var(--gin-spacing-xs);
+#edit-accent-group .form-type-color,
+#edit-focus-group .form-type-color {
+  margin-inline-end: var(--gin-spacing-xs);
 }
 
 #edit-accent-group .description,
@@ -136,16 +124,9 @@
 }
 
 #edit-enable-darkmode .form-type-radio {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-[dir="ltr"] #edit-enable-darkmode .form-type-radio {
-  margin-left: 0;
-}
-
-[dir="rtl"] #edit-enable-darkmode .form-type-radio {
-  margin-right: 0;
+  margin-block: 0;
+  margin-inline-start: 0;
+  display: inline-flex;
 }
 
 #edit-enable-darkmode label.option {
@@ -184,7 +165,7 @@
 #edit-layout-density {
   display: flex;
   flex-wrap: wrap;
-  margin-top: var(--gin-spacing-xs);
+  margin-block-start: var(--gin-spacing-xs);
 }
 
 #edit-classic-toolbar .form-item,
@@ -211,20 +192,11 @@
   position: static;
   width: 140px;
   height: 100px;
+  margin-inline-start: 0;
   border-radius: var(--gin-border-l);
   transform: none;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-}
-
-[dir="ltr"] #edit-classic-toolbar .form-item input,
-[dir="ltr"] #edit-layout-density .form-item input {
-  margin-left: 0;
-}
-
-[dir="rtl"] #edit-classic-toolbar .form-item input,
-[dir="rtl"] #edit-layout-density .form-item input {
-  margin-right: 0;
 }
 
 #edit-classic-toolbar .form-item input #edit-classic-toolbar .form-item input:focus,
@@ -255,8 +227,8 @@
 #edit-layout-density .form-item label.option {
   font-size: var(--gin-font-size-xxs);
   display: block;
-  margin-top: var(--gin-spacing-xs);
-  margin-bottom: var(--gin-spacing-m);
+  margin-block-start: var(--gin-spacing-xs);
+  margin-block-end: var(--gin-spacing-m);
 }
 
 [data-drupal-selector=edit-classic-toolbar].gin-core-navigation--is-active {

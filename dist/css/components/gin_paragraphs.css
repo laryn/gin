@@ -7,15 +7,8 @@
 }
 
 .paragraphs-tabs-wrapper .paragraphs-subform {
-  margin-top: 0;
-}
-
-[dir="ltr"] .paragraphs-tabs-wrapper .paragraphs-subform {
-  margin-right: var(--gin-spacing-m);
-}
-
-[dir="rtl"] .paragraphs-tabs-wrapper .paragraphs-subform {
-  margin-left: var(--gin-spacing-m);
+  margin-block-start: 0;
+  margin-inline-end: var(--gin-spacing-m);
 }
 
 .paragraphs-tabs-wrapper .field-multiple-table > tbody > .draggable > td + td {
@@ -25,7 +18,7 @@
 .paragraphs-tabs-wrapper .field-multiple-table .draggable {
   display: block;
   padding: var(--gin-spacing-m) var(--gin-spacing-xs);
-  margin-top: var(--gin-spacing-m);
+  margin-block-start: var(--gin-spacing-m);
   border: 1px solid var(--gin-border-color-table);
   border-radius: var(--gin-border-m);
 }
@@ -71,14 +64,7 @@
 
 .paragraphs-tabs-wrapper .field-multiple-table .draggable .has-multiple-fields-remove-button {
   width: 100%;
-}
-
-[dir="ltr"] .paragraphs-tabs-wrapper .field-multiple-table .draggable .has-multiple-fields-remove-button {
-  padding-right: 0 !important;
-}
-
-[dir="rtl"] .paragraphs-tabs-wrapper .field-multiple-table .draggable .has-multiple-fields-remove-button {
-  padding-left: 0 !important;
+  padding-inline-end: 0 !important;
 }
 
 .paragraphs-tabs-wrapper .field-multiple-table .draggable .tabledrag-handle::after {
@@ -109,28 +95,16 @@
   color: var(--gin-color-title);
   position: static;
   border: 0 none;
-}
-
-[dir="ltr"] .paragraphs-tabs-wrapper .paragraph-type-label {
-  padding-left: 0;
-}
-
-[dir="rtl"] .paragraphs-tabs-wrapper .paragraph-type-label {
-  padding-right: 0;
+  padding-inline-start: 0;
 }
 
 .paragraphs-tabs-wrapper .paragraphs-subform .paragraph-type-label {
   font-size: var(--gin-font-size-s);
 }
 
-[dir="ltr"] .paragraphs-tabs-wrapper .paragraph-type-add-modal,
-[dir="ltr"] .paragraphs-tabs-wrapper .field--widget-paragraphs .paragraphs-dropbutton-wrapper {
-  margin-right: var(--gin-spacing-xs);
-}
-
-[dir="rtl"] .paragraphs-tabs-wrapper .paragraph-type-add-modal,
-[dir="rtl"] .paragraphs-tabs-wrapper .field--widget-paragraphs .paragraphs-dropbutton-wrapper {
-  margin-left: var(--gin-spacing-xs);
+.paragraphs-tabs-wrapper .paragraph-type-add-modal,
+.paragraphs-tabs-wrapper .field--widget-paragraphs .paragraphs-dropbutton-wrapper {
+  margin-inline-end: var(--gin-spacing-xs);
 }
 
 .paragraph .contextual {
@@ -140,13 +114,13 @@
 .paragraphs-subform .form-item,
 .paragraphs-subform .field--type-text-with-summary .form-item,
 .paragraphs-subform .field--widget-text-textarea .form-item {
-  margin-bottom: var(--gin-spacing-l);
+  margin-block-end: var(--gin-spacing-l);
 }
 
 .paragraphs-add-wrapper .button--small,
 .paragraphs-dropbutton-wrapper .button--small {
-  margin-top: var(--gin-spacing-xs);
-  margin-bottom: var(--gin-spacing-xs);
+  margin-block-start: var(--gin-spacing-xs);
+  margin-block-end: var(--gin-spacing-xs);
 }
 
 .paragraphs-add-wrapper.button--small,
@@ -198,7 +172,7 @@
 }
 
 .field--widget-paragraphs .paragraphs-tabs-wrapper .field-multiple-table tr[class*=paragraph-type--] {
-  margin-top: var(--gin-spacing-m);
+  margin-block-start: var(--gin-spacing-m);
 }
 
 html.js .field--widget-entity-reference-paragraphs .draggable .tabledrag-handle,
@@ -217,18 +191,17 @@ html.js .field--widget-entity-reference-paragraphs .draggable .tabledrag-handle:
 html.js .field--widget-paragraphs .draggable .tabledrag-handle::after {
   position: relative;
   padding: 0;
+  margin-inline-start: 0;
 }
 
 html[dir="ltr"].js .field--widget-entity-reference-paragraphs .draggable .tabledrag-handle::after,
 html[dir="ltr"].js .field--widget-paragraphs .draggable .tabledrag-handle::after {
   left: 0;
-  margin-left: 0;
 }
 
 html[dir="rtl"].js .field--widget-entity-reference-paragraphs .draggable .tabledrag-handle::after,
 html[dir="rtl"].js .field--widget-paragraphs .draggable .tabledrag-handle::after {
   right: 0;
-  margin-right: 0;
 }
 
 .js .paragraphs-collapsed-description::after,
@@ -273,12 +246,8 @@ html.js .field--widget-entity-reference-paragraphs .draggable .tabledrag-handle 
   padding: var(--gin-spacing-xs);
 }
 
-html[dir="ltr"].js .field--widget-paragraphs .paragraphs-dropbutton-wrapper .dropbutton-multiple .dropbutton-widget {
-  margin-right: var(--gin-spacing-xs);
-}
-
-html[dir="rtl"].js .field--widget-paragraphs .paragraphs-dropbutton-wrapper .dropbutton-multiple .dropbutton-widget {
-  margin-left: var(--gin-spacing-xs);
+html.js .field--widget-paragraphs .paragraphs-dropbutton-wrapper .dropbutton-multiple .dropbutton-widget {
+  margin-inline-end: var(--gin-spacing-xs);
 }
 
 html.js .field--widget-paragraphs th .paragraphs-actions .paragraphs-dropdown {
@@ -316,14 +285,7 @@ html[dir="rtl"].js .field--widget-paragraphs th .paragraphs-actions .paragraphs-
 
 html.js .paragraph-type-icon {
   padding: var(--gin-spacing-xxs);
-}
-
-html[dir="ltr"].js .paragraph-type-icon {
-  margin-right: var(--gin-spacing-xs);
-}
-
-html[dir="rtl"].js .paragraph-type-icon {
-  margin-left: var(--gin-spacing-xs);
+  margin-inline-end: var(--gin-spacing-xs);
 }
 
 .js .paragraph-top {
@@ -366,8 +328,8 @@ html[dir="rtl"].js .paragraph-type-icon {
 }
 
 .paragraphs-dragdrop__item {
-  padding-top: var(--gin-spacing-xs);
-  padding-bottom: var(--gin-spacing-xs);
+  padding-block-start: var(--gin-spacing-xs);
+  padding-block-end: var(--gin-spacing-xs);
   background-color: var(--gin-bg-layer3);
   border-radius: var(--gin-border-m);
 }
@@ -386,7 +348,7 @@ html[dir="rtl"].js .paragraph-type-icon {
 
 .field--widget-entity-reference-paragraphs > div > .form-wrapper > strong {
   display: block;
-  margin-top: var(--gin-spacing-xl);
+  margin-block-start: var(--gin-spacing-xl);
 }
 
 .field--widget-entity-reference-paragraphs .form-wrapper .form-wrapper > em {
@@ -398,22 +360,13 @@ html[dir="rtl"].js .paragraph-type-icon {
   align-items: center;
 }
 
-[dir="ltr"] .field--widget-entity-reference-paragraphs .form-actions .dropbutton-multiple {
-  margin-right: var(--gin-spacing-xs);
+.field--widget-entity-reference-paragraphs .form-actions .dropbutton-multiple {
+  margin-inline-end: var(--gin-spacing-xs);
 }
 
-[dir="rtl"] .field--widget-entity-reference-paragraphs .form-actions .dropbutton-multiple {
-  margin-left: var(--gin-spacing-xs);
-}
-
-[dir="ltr"] .field--widget-entity-reference-paragraphs .form-actions .dropbutton-multiple .placeholder,
-[dir="ltr"] .field--widget-entity-reference-paragraphs .form-actions .dropbutton-multiple ~ .placeholder {
-  margin-left: var(--gin-spacing-xxs);
-}
-
-[dir="rtl"] .field--widget-entity-reference-paragraphs .form-actions .dropbutton-multiple .placeholder,
-[dir="rtl"] .field--widget-entity-reference-paragraphs .form-actions .dropbutton-multiple ~ .placeholder {
-  margin-right: var(--gin-spacing-xxs);
+.field--widget-entity-reference-paragraphs .form-actions .dropbutton-multiple .placeholder,
+.field--widget-entity-reference-paragraphs .form-actions .dropbutton-multiple ~ .placeholder {
+  margin-inline-start: var(--gin-spacing-xxs);
 }
 
 [dir="ltr"] .field--widget-entity-reference-paragraphs tr.draggable .tabledrag-handle::after {
@@ -435,14 +388,16 @@ html[dir="rtl"].js .paragraph-type-icon {
   top: calc(var(--gin-toolbar-y-offset) + var(--gin-height-sticky));
 }
 
+.toolbar-fixed .is-horizontal .paragraphs-tabs .tabs__tab {
+  margin-inline-end: var(--gin-spacing-m);
+}
+
 [dir="ltr"] .toolbar-fixed .is-horizontal .paragraphs-tabs .tabs__tab {
   float: left;
-  margin-right: var(--gin-spacing-m);
 }
 
 [dir="rtl"] .toolbar-fixed .is-horizontal .paragraphs-tabs .tabs__tab {
   float: right;
-  margin-left: var(--gin-spacing-m);
 }
 
 .toolbar-fixed .is-horizontal .paragraphs-tabs .tabs__tab a {
@@ -462,7 +417,7 @@ html[dir="rtl"].js .paragraph-type-icon {
   bottom: 0;
   display: block;
   width: 100%;
-  border-bottom: 2px solid var(--gin-color-primary);
+  border-block-end: 2px solid var(--gin-color-primary);
 }
 
 [dir="ltr"] .toolbar-fixed .is-horizontal .paragraphs-tabs .tabs__tab.is-active a::after {

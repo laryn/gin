@@ -8,11 +8,11 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding-top: var(--gin-spacing-xs);
-  padding-bottom: var(--gin-spacing-xs);
-  margin-top: -1px;
+  padding-block-start: var(--gin-spacing-xs);
+  padding-block-end: var(--gin-spacing-xs);
+  margin-block-start: -1px;
   height: var(--gin-toolbar-secondary-height);
-  border-bottom: 1px solid var(--gin-border-color-secondary);
+  border-block-end: 1px solid var(--gin-border-color-secondary);
   box-sizing: border-box;
 
   @include mq(medium) {
@@ -23,10 +23,10 @@
     z-index: 501; /* on top of the Drupal world */
     position: sticky;
     top: 0;
-    margin-top: 0;
+    margin-block-start: 0;
     height: var(--gin-toolbar-secondary-height);
     background: rgba(#fff, .98);
-    border-bottom: 1px solid var(--gin-border-color-layer);
+    border-block-end: 1px solid var(--gin-border-color-layer);
     box-sizing: border-box;
 
     @supports (backdrop-filter: blur()) {
@@ -81,7 +81,7 @@
 .gin-breadcrumb-wrapper {
   flex-grow: 1;
   white-space: nowrap;
-  margin-right: var(--gin-spacing-xl);
+  margin-inline-end: var(--gin-spacing-xl);
 }
 
 .gin-back-to-admin {
@@ -92,8 +92,8 @@
   color: var(--gin-color-text-light);
   text-decoration: none;
   position: relative;
-  padding-left: 2em;
-  border-bottom: 0 none;
+  padding-inline-start: 2em;
+  border-block-end: 0 none;
   border-radius: var(--gin-border-xxs);
 
   &::before {
@@ -157,7 +157,7 @@
       display: flex;
       align-items: center;
       height: 100%;
-      border-bottom: none;
+      border-block-end: none;
     }
   }
 }
@@ -247,7 +247,7 @@
           right: 0;
           width: 170px;
           background-color: var(--gin-bg-layer3);
-          border-bottom: 0 none;
+          border-block-end: 0 none;
           border-radius: var(--gin-border-l) 0 var(--gin-border-l) var(--gin-border-l);
           box-shadow: var(--gin-shadow-l2);
 
@@ -319,7 +319,7 @@
 
       .toolbar-id--toolbar-icon-user {
         @include mq(wide) {
-          margin-right: -1.333em;
+          margin-inline-end: -1.333em;
         }
 
         &:hover {
@@ -332,7 +332,7 @@
         .icon-user {
           border: 1px solid var(--gin-border-color);
           overflow: hidden;
-          margin-left: var(--gin-spacing-m);
+          margin-inline-start: var(--gin-spacing-m);
           padding: 0;
           line-height: 0;
 
@@ -350,7 +350,7 @@
           &,
           ~ .toolbar-tray {
             @include mq(wide) {
-              margin-right: 1.333em;
+              margin-inline-end: 1.333em;
             }
           }
         }
@@ -369,13 +369,13 @@
   @include mq(wide) {
     .toolbar-bar {
       .toolbar-tab {
-        margin-left: -.25em;
+        margin-inline-start: -.25em;
 
         .toolbar-item {
           font-size: var(--gin-font-size-xs);
           width: auto;
           height: auto;
-          padding-left: 2.875em;
+          padding-inline-start: 2.875em;
 
           &::before {
             width: var(--gin-icon-size-toolbar-secondary);
@@ -403,9 +403,9 @@
 
 #admin-toolbar-search-input {
   line-height: 1; // FF fix
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-right: 12px;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+  margin-inline-end: 12px;
   font-size: var(--gin-font-size-xs);
 
   &::placeholder {
@@ -420,7 +420,7 @@
 }
 
 #admin-toolbar-search-tab .js-form-item.form-item {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 .ui-autocomplete.admin-toolbar-search-autocomplete-list {

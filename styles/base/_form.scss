@@ -7,7 +7,7 @@
 
   input,
   a {
-    margin-left: var(--gin-spacing-xs);
+    margin-inline-start: var(--gin-spacing-xs);
   }
 }
 
@@ -36,7 +36,7 @@
   box-sizing: border-box;
   transition: var(--gin-transition);
   max-width: 100%;
-  margin-top: var(--gin-spacing-xxs);
+  margin-block-start: var(--gin-spacing-xxs);
 
   &:hover {
     border-color: var(--gin-color-text);
@@ -123,7 +123,7 @@
 
   .form-item__label {
     top: 3px;
-    padding-bottom: 0;
+    padding-block-end: 0;
   }
 }
 
@@ -157,7 +157,7 @@
 .form-select,
 .form-element--type-select {
   appearance: none;
-  padding-right: calc(var(--gin-spacing-xs) + var(--gin-spacing-xl) - 1px);
+  padding-inline-end: calc(var(--gin-spacing-xs) + var(--gin-spacing-xl) - 1px);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 9'%3e%3cpath fill='none' stroke-width='1.5' d='M1 1l6 6 6-6' stroke='%23545560'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: 100% 50%;
@@ -173,8 +173,8 @@
   font-size: var(--gin-font-size-xs);
   min-height: 2.25rem;
   line-height: 1.4;
-  padding-top: .474rem; // 0.79rem * 1.2 / 2
-  padding-bottom: .474rem; // 0.79rem * 1.2 / 2
+  padding-block-start: .474rem; // 0.79rem * 1.2 / 2
+  padding-block-end: .474rem; // 0.79rem * 1.2 / 2
   background-position: 100% 52%;
 }
 
@@ -187,7 +187,7 @@
   border: 1px solid var(--gin-border-color-form-element);
   border-radius: var(--gin-border-xs);
   box-sizing: border-box;
-  margin-right: var(--gin-spacing-xs);
+  margin-inline-end: var(--gin-spacing-xs);
 }
 
 // Darkmode Checkbox
@@ -231,7 +231,7 @@
 // Single Checkbox: show as toggle
 :not(.form-checkboxes):not(td):not(.tabledrag-cell-content__item):not(.media-library-item__click-to-select-checkbox):not(.field-content):not(.filterable-option) > .form-type-checkbox {
   position: relative;
-  margin-left: 0;
+  margin-inline-start: 0;
 
   input {
     all: unset;
@@ -331,7 +331,7 @@
         }
 
         @media (forced-colors: active) {
-          padding-left: 8px;
+          padding-inline-start: 8px;
           background-color: LinkText !important;
         }
       }
@@ -361,15 +361,15 @@
   label {
     z-index: 1;
     position: relative;
-    padding-left: var(--gin-spacing-xxs);
-    padding-bottom: 0;
+    padding-inline-start: var(--gin-spacing-xxs);
+    padding-block-end: 0;
     color: var(--gin-color-text);
   }
 }
 
 // Correctly align bulk action checkboxes when used in combination with tabledrag
 table:has(.tabledrag-cell-content__item .form-checkbox) th.select-all .form-checkbox {
-  margin-left: calc(var(--tabledrag-handle-icon-size, calc(17rem / 16)) + var(--gin-spacing-m));
+  margin-inline-start: calc(var(--tabledrag-handle-icon-size, calc(17rem / 16)) + var(--gin-spacing-m));
 }
 
 .form-radio,
@@ -473,18 +473,18 @@ table:has(.tabledrag-cell-content__item .form-checkbox) th.select-all .form-chec
 .form-radios,
 .form-checkboxes {
   .form-type--boolean {
-    margin-top: var(--gin-spacing-xs);
-    margin-bottom: var(--gin-spacing-xs);
+    margin-block-start: var(--gin-spacing-xs);
+    margin-block-end: var(--gin-spacing-xs);
   }
 }
 
 .form-actions {
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
 .form-edit .form-actions {
   padding: 0;
-  margin-bottom: 0;
+  margin-block-end: 0;
   border: 0 none;
   background-color: transparent;
 }
@@ -492,9 +492,9 @@ table:has(.tabledrag-cell-content__item .form-checkbox) th.select-all .form-chec
 // Fieldgroup
 fieldset:not(.fieldgroup) {
   color: var(--gin-color-text-light);
-  padding-top: var(--gin-spacing-xs);
-  padding-left: 0;
-  padding-right: 0;
+  padding-block-start: var(--gin-spacing-xs);
+  padding-inline-start: 0;
+  padding-inline-end: 0;
   background: transparent;
   border-color: var(--gin-border-color);
   border-radius: var(--gin-border-m);
@@ -514,8 +514,8 @@ label.option,
   font-weight: var(--gin-font-weight-semibold);
   line-height: calc(18rem / 16);
   color: var(--gin-color-title);
-  margin-top: 0;
-  margin-bottom: var(--gin-spacing-xs);
+  margin-block-start: 0;
+  margin-block-end: var(--gin-spacing-xs);
 }
 
 .form-item__label.has-error,
@@ -526,9 +526,9 @@ label.option,
 .description {
   max-width: var(--gin-max-line-length);
   color: var(--gin-color-text-light);
-  margin-left: 0;
-  margin-top: calc(6rem / 16);
-  margin-bottom: calc(6rem / 16);
+  margin-inline-start: 0;
+  margin-block-start: calc(6rem / 16);
+  margin-block-end: calc(6rem / 16);
   font-size: var(--gin-font-size-xs);
   line-height: calc(17rem / 16);
 }
@@ -542,8 +542,8 @@ label .form-required {
   content: "*";
   color: var(--gin-color-danger);
   line-height: 1;
-  margin-right: .15em;
-  margin-left: .15em;
+  margin-inline-end: .15em;
+  margin-inline-start: .15em;
   vertical-align: text-top;
   background: none;
 }
@@ -560,17 +560,17 @@ label .form-required {
 
 .form-item__warning {
   display: inline-block;
-  margin-top: var(--gin-spacing-xs);
+  margin-block-start: var(--gin-spacing-xs);
 }
 
 html.js .form-autocomplete {
-  padding-right: 36px;
+  padding-inline-end: 36px;
 }
 
 .entity-form-display-form {
   > .form-actions {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
   }
 }
 
@@ -593,19 +593,19 @@ html.js .form-autocomplete {
 .field--type-text-with-summary,
 .field--widget-text-textarea {
   .form-item {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   .filter-wrapper {
     border: 0 none;
-    padding-left: 0;
-    padding-right: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
   }
 }
 
 // Autocomplete field
 html.js input.form-linkit-autocomplete {
-  padding-right: var(--gin-spacing-xl);
+  padding-inline-end: var(--gin-spacing-xl);
   background-position: right 8px center;
 }
 
@@ -625,43 +625,43 @@ html.js input.form-linkit-autocomplete {
 
 // Special case, form starts with a form item, remove margin-top.
 #block-gin-content > form > .form-item:first-of-type {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 .image-style-new {
   .form-item {
-    margin-right: var(--gin-spacing-xxs);
+    margin-inline-end: var(--gin-spacing-xxs);
   }
 }
 
 tr .form-item {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .container-inline .form-item {
-  margin-top: var(--gin-spacing-density-s);
-  margin-bottom: var(--gin-spacing-density-s);
+  margin-block-start: var(--gin-spacing-density-s);
+  margin-block-end: var(--gin-spacing-density-s);
 }
 
 .field-plugin-settings-edit-form {
-  margin-top: var(--gin-spacing-s);
+  margin-block-start: var(--gin-spacing-s);
 
   .form-item {
-    margin-top: var(--gin-spacing-m);
-    margin-bottom: var(--gin-spacing-m);
+    margin-block-start: var(--gin-spacing-m);
+    margin-block-end: var(--gin-spacing-m);
   }
 
   .form-boolean-group .form-item {
-    margin-top: var(--gin-spacing-xs);
-    margin-bottom: var(--gin-spacing-xs);
+    margin-block-start: var(--gin-spacing-xs);
+    margin-block-end: var(--gin-spacing-xs);
   }
 }
 
 // Confirmation form
 .confirmation {
   .form-actions {
-    margin-top: var(--gin-spacing-l);
+    margin-block-start: var(--gin-spacing-l);
   }
 }
 
@@ -685,5 +685,5 @@ tr .form-item {
 
 // Length indicator
 .length-indicator {
-  margin-bottom: var(--gin-spacing-l);
+  margin-block-end: var(--gin-spacing-l);
 }

@@ -76,7 +76,7 @@
 
 @media (forced-colors: active) {
   .ui-dialog .ui-dialog-titlebar {
-    border-bottom: 1px solid buttonBorder;
+    border-block-end: 1px solid buttonBorder;
   }
 }
 
@@ -85,15 +85,8 @@
   font-weight: var(--gin-font-weight-normal);
   color: #fff;
   width: 100%;
+  padding-inline-end: var(--gin-spacing-xl);
   box-sizing: border-box;
-}
-
-[dir="ltr"] .ui-dialog .ui-dialog-title {
-  padding-right: var(--gin-spacing-xl);
-}
-
-[dir="rtl"] .ui-dialog .ui-dialog-title {
-  padding-left: var(--gin-spacing-xl);
 }
 
 .ui-dialog .ui-dialog-content {
@@ -106,7 +99,7 @@
 
 .ui-dialog .ui-widget-content.ui-dialog-buttonpane {
   padding: var(--gin-spacing-s) var(--gin-spacing-l);
-  border-top: 1px solid var(--gin-border-color-layer);
+  border-block-start: 1px solid var(--gin-border-color-layer);
   border-bottom-left-radius: var(--gin-border-m);
   border-bottom-right-radius: var(--gin-border-m);
   background: var(--gin-bg-app);
@@ -122,12 +115,8 @@
   height: auto;
 }
 
-[dir="ltr"] .ui-dialog .ui-widget-content.ui-dialog-buttonpane .button:last-of-type {
-  margin-right: 0;
-}
-
-[dir="rtl"] .ui-dialog .ui-widget-content.ui-dialog-buttonpane .button:last-of-type {
-  margin-left: 0;
+.ui-dialog .ui-widget-content.ui-dialog-buttonpane .button:last-of-type {
+  margin-inline-end: 0;
 }
 
 .ui-dialog .ui-widget-content.ui-dialog-buttonpane .button.button--danger,
@@ -136,7 +125,7 @@
 }
 
 .ui-dialog .ui-dialog-buttonset {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 .ui-dialog .ui-dialog-titlebar-close {
@@ -197,13 +186,13 @@
 }
 
 .ui-dialog .ui-widget-content.ui-dialog-content {
-  padding-left: var(--gin-spacing-l);
-  padding-right: var(--gin-spacing-l);
+  padding-inline-start: var(--gin-spacing-l);
+  padding-inline-end: var(--gin-spacing-l);
   background: var(--gin-bg-layer);
 }
 
 .ui-dialog .gin-layer-wrapper {
-  margin-bottom: var(--gin-spacing-l);
+  margin-block-end: var(--gin-spacing-l);
 }
 
 .ui-dialog input,
@@ -215,8 +204,8 @@
 }
 
 .ui-dialog .gin-confirm-form {
-  margin-top: var(--gin-spacing-m);
-  margin-bottom: var(--gin-spacing-s);
+  margin-block-start: var(--gin-spacing-m);
+  margin-block-end: var(--gin-spacing-s);
 }
 
 .erl-overlay,
@@ -255,12 +244,12 @@ ul.paragraphs-add-dialog-list {
 }
 
 .views-ui-dialog .views-offset-bottom {
-  border-top: 1px solid var(--gin-border-color);
+  border-block-start: 1px solid var(--gin-border-color);
 }
 
 @media (forced-colors: active) {
   .views-ui-dialog .views-offset-bottom {
-    border-top: none;
+    border-block-start: none;
   }
 }
 
@@ -306,8 +295,8 @@ table.treetable tr.branch {
 }
 
 .ui-dialog .gin-layer-wrapper {
-  margin-bottom: var(--gin-spacing-l);
-  margin-top: var(--gin-spacing-l);
+  margin-block-end: var(--gin-spacing-l);
+  margin-block-start: var(--gin-spacing-l);
 }
 
 .views-ui-dialog.views-ui-dialog > .ui-dialog-content {

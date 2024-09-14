@@ -1,6 +1,6 @@
 .block-page-title-block {
   &:last-child {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 }
 
@@ -13,7 +13,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-right: .25em;
+  padding-inline-end: .25em;
   max-width: 90%;
   transition: font-size 0.25s ease;
 
@@ -39,7 +39,7 @@
 .shortcut-action {
   position: relative;
   align-self: center;
-  margin-left: 0;
+  margin-inline-start: 0;
   border-radius: var(--gin-border-m);
 
   &__icon {
@@ -87,7 +87,7 @@
     pointer-events: none;
     white-space: nowrap;
     padding: var(--gin-spacing-xs);
-    margin-top: calc(var(--gin-spacing-xxs) * -1);
+    margin-block-start: calc(var(--gin-spacing-xxs) * -1);
     color: var(--gin-color-contextual-text);
     background: var(--gin-color-contextual);
     border-radius: var(--gin-border-xs);

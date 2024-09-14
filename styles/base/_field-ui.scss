@@ -40,7 +40,7 @@
 
     .form-item__label {
       font-weight: var(--gin-font-weight-semibold);
-      margin-bottom: var(--gin-spacing-xxs);
+      margin-block-end: var(--gin-spacing-xxs);
     }
   }
 
@@ -79,7 +79,7 @@
   .item-list {
     font-size: var(--gin-font-size-xs);
     color: var(--gin-color-text-light);
-    margin-top: var(--gin-spacing-xs);
+    margin-block-start: var(--gin-spacing-xs);
   }
 
   &.selected {

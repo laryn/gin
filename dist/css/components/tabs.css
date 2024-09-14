@@ -5,8 +5,8 @@
 .tabs-wrapper,
 .horizontal-tabs ul.horizontal-tabs-list {
   padding: 0;
-  margin-left: calc(var(--gin-spacing-xs) * -1);
-  margin-right: calc(var(--gin-spacing-xs) * -1);
+  margin-inline-start: calc(var(--gin-spacing-xs) * -1);
+  margin-inline-end: calc(var(--gin-spacing-xs) * -1);
 }
 
 .responsive-tabs-link-text-wrapper {
@@ -75,7 +75,7 @@
 }
 
 .tabs-wrapper.is-horizontal {
-  padding-bottom: var(--gin-spacing-l);
+  padding-block-end: var(--gin-spacing-l);
 }
 
 .tabs__link,
@@ -110,7 +110,7 @@
   position: relative;
   width: 100%;
   padding: .3125rem var(--gin-spacing-xs) var(--gin-spacing-l);
-  margin-bottom: calc(var(--gin-spacing-l) * -1);
+  margin-block-end: calc(var(--gin-spacing-l) * -1);
   overflow-x: auto;
 }
 
@@ -121,7 +121,7 @@
   .responsive-tabs-dropdown {
     width: 100%;
     padding: .3125rem var(--gin-spacing-xs) var(--gin-spacing-l);
-    margin-bottom: calc(var(--gin-spacing-xl) * -1);
+    margin-block-end: calc(var(--gin-spacing-xl) * -1);
     overflow-x: auto;
   }
 
@@ -129,7 +129,7 @@
   .gin--edit-form .is-horizontal .tabs--secondary,
   .gin--edit-form .horizontal-tabs ul.horizontal-tabs-list,
   .gin--edit-form .responsive-tabs-dropdown {
-    padding-top: .4rem;
+    padding-block-start: .4rem;
   }
 }
 
@@ -144,7 +144,7 @@
   display: block;
   width: 100%;
   max-width: calc(100% - var(--gin-spacing-m));
-  border-bottom: 1px solid var(--gin-border-color);
+  border-block-end: 1px solid var(--gin-border-color);
   transition: var(--gin-transition);
 }
 
@@ -240,23 +240,23 @@
 .is-horizontal .tabs--primary,
 .is-horizontal .tabs--secondary,
 .responsive-tabs-dropdown {
-  margin-left: 0;
-  margin-right: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 .tabs--primary,
 .responsive-tabs-dropdown {
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
 .is-horizontal .tabs--primary::after,
 .responsive-tabs-dropdown::after {
-  border-bottom: 0 none;
+  border-block-end: 0 none;
 }
 
 .gin--high-contrast-mode .is-horizontal .tabs--primary::after,
 .gin--high-contrast-mode .responsive-tabs-dropdown::after {
-  border-bottom: 1px solid;
+  border-block-end: 1px solid;
 }
 
 .is-horizontal .tabs--primary .tabs__tab.is-active:focus-within::after,
@@ -277,18 +277,9 @@
   .responsive-tabs-dropdown .tabs__link {
     font-size: var(--gin-font-size);
     padding: calc(var(--gin-spacing-xs) - 2px) var(--gin-spacing-s);
+    margin-inline-end: .25em;
     min-height: 2rem;
     border-radius: 2rem;
-  }
-
-  [dir="ltr"] .is-horizontal .tabs--primary .tabs__link,
-  [dir="ltr"] .responsive-tabs-dropdown .tabs__link {
-    margin-right: .25em;
-  }
-
-  [dir="rtl"] .is-horizontal .tabs--primary .tabs__link,
-  [dir="rtl"] .responsive-tabs-dropdown .tabs__link {
-    margin-left: .25em;
   }
 }
 
@@ -308,7 +299,7 @@
 }
 
 .is-horizontal .tabs--secondary {
-  margin-top: var(--gin-spacing-m);
+  margin-block-start: var(--gin-spacing-m);
 }
 
 .is-horizontal .tabs--secondary::before {
@@ -328,21 +319,14 @@
   flex-wrap: wrap;
   width: 100%;
   border: 0 none;
-  margin-top: calc(var(--gin-spacing-m) * -1);
+  margin-block-start: calc(var(--gin-spacing-m) * -1);
 }
 
 .horizontal-tabs ul.horizontal-tabs-list {
   background: none;
-  border-bottom: 0 none;
+  border-inline-end: 0 none;
+  border-block-end: 0 none;
   overflow: hidden;
-}
-
-[dir="ltr"] .horizontal-tabs ul.horizontal-tabs-list {
-  border-right: 0 none;
-}
-
-[dir="rtl"] .horizontal-tabs ul.horizontal-tabs-list {
-  border-left: 0 none;
 }
 
 .horizontal-tabs ul.horizontal-tabs-list:after {
@@ -359,15 +343,8 @@
 
 .horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button {
   background: none;
-  border-bottom: 0 none;
-}
-
-[dir="ltr"] .horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button {
-  border-right: 0 none;
-}
-
-[dir="rtl"] .horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button {
-  border-left: 0 none;
+  border-inline-end: 0 none;
+  border-block-end: 0 none;
 }
 
 .horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a {
@@ -388,9 +365,9 @@
 
 .horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button.selected a::before {
   z-index: 1;
-  border-left: none;
-  border-right: none;
-  border-bottom: 3px solid var(--gin-color-primary);
+  border-inline-start: none;
+  border-inline-end: none;
+  border-block-end: 3px solid var(--gin-color-primary);
   top: auto;
   bottom: 0;
   left: 0;
@@ -400,7 +377,7 @@
 }
 
 .horizontal-tabs .horizontal-tabs {
-  margin-top: var(--gin-spacing-m);
+  margin-block-start: var(--gin-spacing-m);
 }
 
 .horizontal-tabs .horizontal-tabs-panes,
@@ -418,7 +395,7 @@
 }
 
 .horizontal-tabs .paragraphs-subform .horizontal-tabs-panes {
-  margin-top: var(--gin-spacing-s);
+  margin-block-start: var(--gin-spacing-s);
 }
 
 .gin--dark-mode .vertical-tabs__items {
@@ -605,8 +582,8 @@
   box-sizing: border-box;
   width: 50px;
   height: auto;
-  padding-left: 0;
-  padding-right: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
   font-size: .9375em;
   text-align: center;
   visibility: visible;

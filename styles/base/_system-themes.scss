@@ -1,6 +1,6 @@
 .system-themes-list,
 .system-themes-list.system-themes-list-disabled {
-  margin-bottom: var(--gin-spacing-l);
+  margin-block-end: var(--gin-spacing-l);
   display: flex;
   flex-direction: column;
 
@@ -53,8 +53,8 @@
 
     h3 {
       font-size: 1.125rem;
-      margin-top: 0;
-      margin-bottom: var(--gin-spacing-m);
+      margin-block-start: 0;
+      margin-block-end: var(--gin-spacing-m);
     }
 
     .theme-info {
@@ -104,7 +104,7 @@
 }
 
 .system-themes-list-disabled {
-  border-top: none;
+  border-block-start: none;
 }
 
 #system-themes-page {

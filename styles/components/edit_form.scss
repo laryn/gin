@@ -4,7 +4,7 @@
 
     // Has sidebar, save the space
     @include mq(large) {
-      padding-right: var(--gin-sidebar-offset);
+      padding-inline-end: var(--gin-sidebar-offset);
 
       .dialog-off-canvas-main-canvas {
         transition: padding-left var(--gin-transition-fast);
@@ -12,7 +12,7 @@
 
       // If off-canvas dialog is shown
       &.js-off-canvas-dialog-open {
-        padding-right: 0;
+        padding-inline-end: 0;
 
         // Hide sidebar when off-canvas is shown
         .layout-region.layout-region-node-secondary {
@@ -46,7 +46,7 @@
     .layout-region-node-main,
     .layout-region-node-footer {
       width: 100%;
-      padding-right: 0;
+      padding-inline-end: 0;
 
       @include mq(large) {
         flex-basis: 40%;
@@ -87,7 +87,7 @@
   .layout-region-node-main,
   .layout-region-node-footer {
     width: 100%;
-    padding-right: 0;
+    padding-inline-end: 0;
 
     @include mq(large) {
       flex-basis: 40%;
@@ -114,8 +114,8 @@
       @include mq(1730px) {
         width: 100%;
         max-width: $breakpointWide;
-        margin-left: auto;
-        margin-right: auto;
+        margin-inline-start: auto;
+        margin-inline-end: auto;
         box-sizing: border-box;
       }
     }
@@ -132,7 +132,7 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       background: var(--gin-bg-layer);
-      border-left: 1px solid var(--gin-border-color-layer);
+      border-inline-start: 1px solid var(--gin-border-color-layer);
       transition: all var(--gin-transition-fast);
     }
 
@@ -151,8 +151,8 @@
     .help {
       width: 100%;
       max-width: $breakpointWide;
-      margin-left: auto;
-      margin-right: auto;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
       box-sizing: border-box;
     }
 
@@ -170,7 +170,7 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       background:var(--gin-bg-layer);
-      border-left: 1px solid var(--gin-border-color-layer);
+      border-inline-start: 1px solid var(--gin-border-color-layer);
       transition: all var(--gin-transition-fast);
 
       .gin--dark-mode & {
@@ -182,15 +182,15 @@
           margin: 0;
 
           .action-link {
-            margin-top: var(--gin-spacing-xs);
-            margin-bottom: 0;
+            margin-block-start: var(--gin-spacing-xs);
+            margin-block-end: 0;
           }
         }
       }
 
       .field--name-revision-log,
       .field--name-revision-log-message {
-        margin-top: var(--gin-spacing-s);
+        margin-block-start: var(--gin-spacing-s);
       }
 
       .accordion {
@@ -209,8 +209,8 @@
           border: 0 none;
 
           @include mq($to: medium) {
-            padding-top: calc(var(--gin-spacing-l) - var(--gin-spacing-xxs));
-            padding-right: var(--gin-spacing-l);
+            padding-block-start: calc(var(--gin-spacing-l) - var(--gin-spacing-xxs));
+            padding-inline-end: var(--gin-spacing-l);
           }
 
           .form-type--item,
@@ -232,15 +232,15 @@
             margin: 0;
 
             .action-link {
-              margin-top: var(--gin-spacing-xs);
-              margin-bottom: 0;
+              margin-block-start: var(--gin-spacing-xs);
+              margin-block-end: 0;
             }
           }
         }
 
         .field--name-revision-log,
         .field--name-revision-log-message {
-          margin-top: var(--gin-spacing-l);
+          margin-block-start: var(--gin-spacing-l);
         }
 
         .accordion {
@@ -253,7 +253,7 @@
           border-radius: 0;
           margin: 0;
           border: none;
-          border-bottom: 1px solid var(--gin-border-color-layer);
+          border-block-end: 1px solid var(--gin-border-color-layer);
 
           > legend {
             border: none;
@@ -262,7 +262,7 @@
             .fieldset-legend {
               position: relative;
               font-size: var(--gin-font-size-s);
-              // padding-left: #{$sidebarSpacer + 1.5rem};
+              // padding-inline-start: #{$sidebarSpacer + 1.5rem};
 
               span.summary {
                 left: var(--gin-spacing-xxl);
@@ -283,7 +283,7 @@
               }
 
               a.fieldset-title {
-                padding-bottom: var(--gin-spacing-xl);
+                padding-block-end: var(--gin-spacing-xl);
                 background-color: transparent;
 
                 &:before {
@@ -298,7 +298,7 @@
             }
 
             .fieldset-wrapper {
-              border-top: 1px solid var(--gin-border-color);
+              border-block-start: 1px solid var(--gin-border-color);
               background: var(--gin-bg-app);
               padding: var(--gin-spacing-l);
             }
@@ -319,10 +319,10 @@
           > legend {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 0;
-            border-left: 3px solid var(--gin-color-primary);
+            border-inline-start: 3px solid var(--gin-color-primary);
 
             a.fieldset-title {
-              padding-bottom: var(--gin-spacing-m);
+              padding-block-end: var(--gin-spacing-m);
               color: var(--gin-color-primary);
 
               &:before {
@@ -338,29 +338,29 @@
 
           &__header {
             color: var(--gin-color-text);
-            padding-left: $sidebarSpacer;
-            padding-right: $sidebarSpacer;
+            padding-inline-start: $sidebarSpacer;
+            padding-inline-end: $sidebarSpacer;
             background-color: var(--gin-bg-layer);
             border: 0 none;
 
             @include mq($to: medium) {
-              padding-top: calc(var(--gin-spacing-l) - var(--gin-spacing-xxs));
-              padding-right: var(--gin-spacing-l);
+              padding-block-start: calc(var(--gin-spacing-l) - var(--gin-spacing-xxs));
+              padding-inline-end: var(--gin-spacing-l);
             }
           }
 
           &__title {
             color: var(--gin-color-title);
             font-weight: var(--gin-font-weight-semibold);
-            margin-top: var(--gin-spacing-xxs);
-            margin-bottom: var(--gin-spacing-m);
+            margin-block-start: var(--gin-spacing-xxs);
+            margin-block-end: var(--gin-spacing-m);
             text-shadow: none;
           }
 
           > .accordion__item {
             margin: 0;
             border: 0 none;
-            border-bottom: 1px solid var(--gin-border-color-layer);
+            border-block-end: 1px solid var(--gin-border-color-layer);
             border-radius: 0;
 
             .gin--dark-mode & {
@@ -369,11 +369,11 @@
 
             > .claro-details__summary {
               display: block;
-              padding-left: #{$sidebarSpacer + 1.5rem};
+              padding-inline-start: #{$sidebarSpacer + 1.5rem};
 
               .details-title {
                 position: static;
-                padding-left: 0;
+                padding-inline-start: 0;
               }
 
               &::before {
@@ -387,8 +387,8 @@
             }
 
             .claro-details__content {
-              margin-left: $sidebarSpacer;
-              margin-right: $sidebarSpacer;
+              margin-inline-start: $sidebarSpacer;
+              margin-inline-end: $sidebarSpacer;
 
               .claro-details__wrapper {
                 margin: var(--gin-spacing-l);
@@ -432,11 +432,11 @@
 
                 &:first-of-type {
                   @include mq(tiny) {
-                    margin-right: var(--gin-spacing-xs);
+                    margin-inline-end: var(--gin-spacing-xs);
                   }
 
                   @include mq(large, wide) {
-                    margin-right: 0;
+                    margin-inline-end: 0;
                   }
                 }
 
@@ -555,7 +555,7 @@
     line-height: normal;
     letter-spacing: -0.025em;
     width: 100%;
-    padding-top: var(--gin-spacing-s);
-    padding-bottom: var(--gin-spacing-s);
+    padding-block-start: var(--gin-spacing-s);
+    padding-block-end: var(--gin-spacing-s);
   }
 }

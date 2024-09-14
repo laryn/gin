@@ -19,7 +19,7 @@
 
   .cke_top {
     background: var(--gin-bg-layer);
-    border-bottom: 1px solid var(--gin-border-color-form-element);
+    border-block-end: 1px solid var(--gin-border-color-form-element);
     border-radius: calc(var(--gin-border-m) - 1px) calc(var(--gin-border-m) - 1px) 0 0;
 
     .gin--dark-mode & {
@@ -34,8 +34,8 @@
   }
 
   .cke_contents {
-    padding-left: var(--gin-spacing-xs);
-    padding-right: var(--gin-spacing-xs);
+    padding-inline-start: var(--gin-spacing-xs);
+    padding-inline-end: var(--gin-spacing-xs);
   }
 
   .cke_path_empty:only-child::after {
@@ -44,7 +44,7 @@
 
   .cke_combo {
     &::after {
-      border-right: 1px solid var(--gin-border-color);
+      border-inline-end: 1px solid var(--gin-border-color);
     }
   }
 

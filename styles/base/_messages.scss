@@ -13,11 +13,11 @@
 
   &,
   &-list {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   &-list {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   a {
@@ -35,14 +35,14 @@
 
   &__title,
   &__content {
-    margin-left: 2.125rem;
+    margin-inline-start: 2.125rem;
   }
 
   .messages__header {
     position: relative;
     background-image: none;
-    margin-bottom: var(--gin-spacing-xxs);
-    margin-right: 1.5em;
+    margin-block-end: var(--gin-spacing-xxs);
+    margin-inline-end: 1.5em;
 
     &:before {
       content: "";
@@ -199,7 +199,7 @@
     }
   }
   + .messages {
-    margin-top: var(--gin-spacing-xxs);
+    margin-block-start: var(--gin-spacing-xxs);
   }
 }
 
@@ -210,8 +210,8 @@
 .messages.error {
   position: relative;
   background-image: none;
-  margin-bottom: var(--gin-spacing-xxs);
-  padding-left: calc(2.125rem + var(--gin-spacing-m));
+  margin-block-end: var(--gin-spacing-xxs);
+  padding-inline-start: calc(2.125rem + var(--gin-spacing-m));
 
   &:before {
     content: "";

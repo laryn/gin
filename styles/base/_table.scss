@@ -4,7 +4,7 @@
   overflow-y: hidden;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
-  margin-top: calc(var(--gin-spacing-xs) * -1);
+  margin-block-start: calc(var(--gin-spacing-xs) * -1);
 }
 
 table.gin--sticky-table-header {
@@ -13,7 +13,7 @@ table.gin--sticky-table-header {
   position: sticky;
   top: calc(var(--gin-toolbar-y-offset) + var(--gin-height-sticky) - 1px);
   width: auto !important;
-  margin-top: -8px;
+  margin-block-start: -8px;
   overflow: hidden;
 
   tr {
@@ -67,14 +67,14 @@ table {
     border-radius: var(--gin-border-m);
 
     tr {
-      border-bottom: 2px solid var(--gin-border-color-table-header);
+      border-block-end: 2px solid var(--gin-border-color-table-header);
 
       &:hover {
         background: transparent;
       }
 
       th {
-        border-bottom: none;
+        border-block-end: none;
       }
     }
   }
@@ -101,7 +101,7 @@ table {
     tr,
     tr.odd,
     tr.even {
-      border-bottom: 1px solid var(--gin-border-color-table);
+      border-block-end: 1px solid var(--gin-border-color-table);
     }
 
     td {
@@ -177,7 +177,7 @@ table.views-table th,
 
     &:hover::before,
     &:active::before {
-      border-bottom: .1875rem solid var(--gin-color-primary-active);
+      border-block-end: .1875rem solid var(--gin-color-primary-active);
     }
   }
 
@@ -190,7 +190,7 @@ table.views-table th,
     left: 1rem;
     display: block;
     content: "";
-    border-bottom: 0.125rem solid transparent;
+    border-block-end: 0.125rem solid transparent;
   }
 
   > a::after {
@@ -203,7 +203,7 @@ table.views-table th,
     right: 1rem;
     width: 0.875rem;
     height: 1rem;
-    margin-top: -0.5rem;
+    margin-block-start: -0.5rem;
     content: "";
     opacity: 0.5;
 
@@ -231,7 +231,7 @@ table.views-table th,
       background-color: var(--gin-bg-item);
       border-top-left-radius: var(--gin-border-s);
       border-top-right-radius: var(--gin-border-s);
-      border-bottom: .1875rem solid var(--gin-color-primary-active);
+      border-block-end: .1875rem solid var(--gin-color-primary-active);
     }
 
     &::after {
@@ -252,7 +252,7 @@ table.views-table th,
   right: 1rem;
   width: 0.875rem;
   height: 1rem;
-  margin-top: -0.5rem;
+  margin-block-start: -0.5rem;
   display: inline-block;
 }
 
@@ -283,7 +283,7 @@ table.views-table th,
 }
 
 .region-title {
-  border-bottom: 2px solid var(--gin-color-text);
+  border-block-end: 2px solid var(--gin-color-text);
 }
 
 td.webform-has-field-suffix > .form-item > .form-element {
@@ -294,7 +294,7 @@ td.webform-has-field-suffix > .form-item > .form-element {
 .field-multiple-table {
   th {
     padding: var(--gin-spacing-xs) var(--gin-spacing-m) var(--gin-spacing-xs) var(--gin-spacing-l);
-    border-bottom: 0;
+    border-block-end: 0;
     background: transparent;
 
     &.th__order {
@@ -320,7 +320,7 @@ td.webform-has-field-suffix > .form-item > .form-element {
     }
 
     tr {
-      border-bottom: 0;
+      border-block-end: 0;
     }
 
     .field-label .label,
@@ -337,7 +337,7 @@ td.webform-has-field-suffix > .form-item > .form-element {
   }
 
   tr .form-item:not(:last-of-type) {
-    margin-bottom: var(--gin-spacing-m);
+    margin-block-end: var(--gin-spacing-m);
   }
 
   // Fixes paragraphs extending beyond layout
@@ -347,7 +347,7 @@ td.webform-has-field-suffix > .form-item > .form-element {
 }
 
 .gin-layer-wrapper .views-table {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 .tableresponsive-toggle {
@@ -388,7 +388,7 @@ table.sticky-enabled {
       &:has(+ tr.header),
       &:has(+ tr.region-title),
       &:has(+ tr.module-row) {
-        border-bottom: none;
+        border-block-end: none;
       }
     }
   }

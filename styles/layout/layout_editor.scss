@@ -72,7 +72,7 @@
 
 .layout-flexible-editor {
   .layout-editor-block-title {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   .layout-editor-region-title {
@@ -178,7 +178,7 @@
 }
 
 .layout-button-link {
-  margin-bottom: var(--gin-spacing-l);
+  margin-block-end: var(--gin-spacing-l);
 }
 
 .layout-access-list {

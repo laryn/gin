@@ -41,7 +41,7 @@
   // Open trigger
   &.open .trigger {
     border-radius: 50%;
-    border-bottom: 0 none;
+    border-block-end: 0 none;
   }
 }
 
@@ -95,7 +95,7 @@
         width: 1rem;
         height: 1rem;
         border: 2px solid var(--gin-color-button-text);
-        border-right: 2px dotted transparent;
+        border-inline-end: 2px dotted transparent;
       }
     }
   }

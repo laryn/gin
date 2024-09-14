@@ -15,9 +15,9 @@ details {
     width: calc(100% - 2px - var(--gin-spacing-l) - var(--gin-spacing-xxl));
     min-width: calc(100% - 2px - var(--gin-spacing-l) - var(--gin-spacing-xxl));
     border-radius: var(--gin-border-m);
-    border-top: 1px solid var(--gin-border-color);
-    border-left: 1px solid var(--gin-border-color);
-    border-right: 1px solid var(--gin-border-color);
+    border-block-start: 1px solid var(--gin-border-color);
+    border-inline-start: 1px solid var(--gin-border-color);
+    border-inline-end: 1px solid var(--gin-border-color);
 
     &:hover {
       background: var(--gin-color-primary-light-hover);
@@ -40,7 +40,7 @@ details {
       display: inline-block;
       width: var(--gin-spacing-m);
       height: var(--gin-spacing-m);
-      margin-top: calc(var(--gin-spacing-m) / -2);
+      margin-block-start: calc(var(--gin-spacing-m) / -2);
       content: "";
       position: absolute;
       text-align: center;

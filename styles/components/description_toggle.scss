@@ -36,21 +36,21 @@
     align-items: normal;
 
     > label {
-      margin-left: 6px;
+      margin-inline-start: 6px;
     }
   }
 }
 
 // Detail summary
 .field-group-details.help-icon__description-container .help-icon__description-toggle {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 // Fieldgroup adjustments
 fieldset:not(.fieldgroup) {
   .help-icon {
     > .fieldset__legend .fieldset__label {
-      padding-right: 0;
+      padding-inline-end: 0;
     }
   }
 }
@@ -60,15 +60,15 @@ fieldset.media-library-widget,
 .field--type-datetime fieldset {
   .help-icon {
     > .help-icon__description-toggle {
-      margin-top: 1rem;
+      margin-block-start: 1rem;
     }
   }
 
   .fieldset__description {
-    padding-left: var(--gin-spacing-m);
+    padding-inline-start: var(--gin-spacing-m);
 
     @include mq(small) {
-      padding-left: var(--gin-spacing-l);
+      padding-inline-start: var(--gin-spacing-l);
     }
   }
 }

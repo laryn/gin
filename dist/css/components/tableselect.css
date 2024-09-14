@@ -9,7 +9,7 @@
 .block-system > .views-form .views-table,
 .view-content .views-form .views-table {
   order: -1;
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 .block-system > .views-form .views-bulk-form,
@@ -88,16 +88,7 @@
 .view-content .views-form .views-bulk-form > .form-item {
   color: var(--gin-color-text);
   font-weight: var(--gin-font-weight-semibold);
-}
-
-[dir="ltr"] .block-system > .views-form .views-bulk-form > .form-item,
-[dir="ltr"] .view-content .views-form .views-bulk-form > .form-item {
-  margin-right: var(--gin-spacing-xs);
-}
-
-[dir="rtl"] .block-system > .views-form .views-bulk-form > .form-item,
-[dir="rtl"] .view-content .views-form .views-bulk-form > .form-item {
-  margin-left: var(--gin-spacing-xs);
+  margin-inline-end: var(--gin-spacing-xs);
 }
 
 .block-system > .views-form .views-bulk-form .button-primary:not(:disabled, .is-disabled),

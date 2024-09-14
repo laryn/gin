@@ -10,7 +10,7 @@
 
   &__pane {
     padding: var(--gin-spacing-l) var(--gin-spacing-l) 0 var(--gin-spacing-l);
-    border-left: 1px solid var(--gin-border-color);
+    border-inline-start: 1px solid var(--gin-border-color);
 
     table {
       tr.enabling {
@@ -20,10 +20,10 @@
   }
 
   &__menu-item {
-    border-top: 1px solid var(--gin-border-color);
+    border-block-start: 1px solid var(--gin-border-color);
 
     &.tab__new {
-      border-bottom: 1px solid var(--gin-border-color);
+      border-block-end: 1px solid var(--gin-border-color);
     }
 
     &.disabled {
@@ -78,8 +78,8 @@
   }
 
   .form-type--search {
-    margin-top: 0;
-    margin-bottom: var(--gin-spacing-xs);
+    margin-block-start: 0;
+    margin-block-end: var(--gin-spacing-xs);
   }
 }
 
@@ -90,11 +90,11 @@
 }
 
 .module-filter-status {
-  margin-left: -1em;
+  margin-inline-start: -1em;
 }
 
 .modules-tabs .module-filter-status {
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 
 .system-modules td details a {

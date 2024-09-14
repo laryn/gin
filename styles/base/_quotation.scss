@@ -1,7 +1,7 @@
 blockquote {
   font-size: var(--gin-font-size-quote);
   position: relative;
-  padding-left: var(--gin-spacing-l);
+  padding-inline-start: var(--gin-spacing-l);
   margin: var(--gin-spacing-m);
 
   &::before {

@@ -49,15 +49,15 @@ ul.primary {
 }
 
 .container-fluid {
-  margin-left: min(5vw, var(--gin-spacing-xxl));
-  margin-right: min(5vw, var(--gin-spacing-xxl));
-  padding-left: 0;
-  padding-right: 0;
+  margin-inline-start: min(5vw, var(--gin-spacing-xxl));
+  margin-inline-end: min(5vw, var(--gin-spacing-xxl));
+  padding-inline-start: 0;
+  padding-inline-end: 0;
 }
 
 .layout.dashboard .region-sticky .container-fluid {
-  margin-left: 0;
-  margin-right: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 html {
@@ -70,13 +70,13 @@ html {
 
 .l-top,
 .l-middle {
-  margin-top: var(--gin-spacing-l);
+  margin-block-start: var(--gin-spacing-l);
 }
 
 table {
   width: 100%;
-  margin-top: var(--gin-spacing-l);
-  margin-bottom: var(--gin-spacing-l);
+  margin-block-start: var(--gin-spacing-l);
+  margin-block-end: var(--gin-spacing-l);
   border-collapse: collapse;
 }
 
@@ -86,7 +86,7 @@ tr.odd {
 }
 
 table.sticky-enabled {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 #system-modules {
@@ -125,7 +125,7 @@ table.sticky-enabled {
 }
 
 .form-item.installer-browser-sort {
-  margin-bottom: 0;
+  margin-block-end: 0;
 
   .installer-browser-sort-list {
     li.first {
@@ -151,8 +151,8 @@ table.sticky-enabled {
         top: 50%;
         width: .875rem;
         height: 1rem;
-        margin-top: -0.5rem;
-        margin-left: var(--gin-spacing-xs);
+        margin-block-start: -0.5rem;
+        margin-inline-start: var(--gin-spacing-xs);
         display: inline-block;
         background: var(--gin-color-text-light);
       }
@@ -160,7 +160,7 @@ table.sticky-enabled {
       &.sort-active a,
       & a:hover {
         color: var(--gin-color-primary-active);
-        border-bottom: .1875rem solid var(--gin-color-primary-active);
+        border-block-end: .1875rem solid var(--gin-color-primary-active);
       }
 
       &.sort-desc {
@@ -198,8 +198,8 @@ table.sticky-enabled {
 }
 
 .button-action::before {
-  margin-left: -0.25em;
-  padding-right: 0.25em;
+  margin-inline-start: -0.25em;
+  padding-inline-end: 0.25em;
   content: "+";
   font-weight: 900;
 }
@@ -248,13 +248,13 @@ a.button-primary:focus:hover {
 
 .form-item,
 .form-actions {
-  margin-top: 0;
-  margin-bottom: var(--gin-spacing-l);
-  padding-top: var(--gin-spacing-xs);
+  margin-block-start: 0;
+  margin-block-end: var(--gin-spacing-l);
+  padding-block-start: var(--gin-spacing-xs);
 }
 
 .form-item.form-item-enable-darkmode {
-  padding-top: 0;
+  padding-block-start: 0;
 }
 
 .tabs {
@@ -289,7 +289,7 @@ a.button-primary:focus:hover {
 
 @include mq(small) {
   .is-horizontal .tabs__link.is-active::before {
-    border-bottom: 0.1875rem solid var(--gin-color-primary);
+    border-block-end: 0.1875rem solid var(--gin-color-primary);
     top: auto;
     right: 0;
     bottom: 0;
@@ -312,7 +312,7 @@ a.button-primary:focus:hover {
 }
 
 .views-exposed-form {
-  margin-bottom: var(--gin-spacing-l);
+  margin-block-end: var(--gin-spacing-l);
 
   .views-exposed-form {
     border: none;
@@ -333,7 +333,7 @@ a.button-primary:focus:hover {
     margin: 0 var(--gin-spacing-s);
 
     h3 {
-      margin-top: 0;
+      margin-block-start: 0;
     }
   }
 }
@@ -345,9 +345,9 @@ fieldset {
   legend {
     padding: var(--gin-spacing-m) var(--gin-spacing-l);
     border-radius: var(--gin-border-m) var(--gin-border-m) 0 0;
-    border-top: 1px solid var(--gin-border-color);
-    border-left: 1px solid var(--gin-border-color);
-    border-right: 1px solid var(--gin-border-color);
+    border-block-start: 1px solid var(--gin-border-color);
+    border-inline-start: 1px solid var(--gin-border-color);
+    border-inline-end: 1px solid var(--gin-border-color);
   }
 
   .fieldset-legend {
@@ -357,7 +357,7 @@ fieldset {
     }
 
     span.summary {
-      margin-left: 0;
+      margin-inline-start: 0;
       position: absolute;
       top: var(--gin-spacing-m);
       right: var(--gin-spacing-l);
@@ -388,7 +388,7 @@ fieldset.collapsible {
       display: inline-block;
       width: var(--gin-spacing-m);
       height: var(--gin-spacing-m);
-      margin-top: calc(var(--gin-spacing-m) / -2);
+      margin-block-start: calc(var(--gin-spacing-m) / -2);
       content: "";
       transform: rotate(-90deg);
       position: absolute;
@@ -493,8 +493,8 @@ fieldset.collapsible.collapsed {
   }
 
   .container-fluid {
-    margin-left: 0;
-    margin-right: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     flex-grow: 1;
   }
 
@@ -506,7 +506,7 @@ fieldset.collapsible.collapsed {
     height: auto;
     z-index: 0;
     border: none;
-    padding-bottom: 0;
+    padding-block-end: 0;
   }
 
   .region-sticky {
@@ -528,10 +528,10 @@ fieldset.collapsible.collapsed {
     font-weight: var(--gin-font-weight-bold);
     color: var(--gin-color-primary-active);
     padding: var(--gin-spacing-xs) var(--gin-spacing-xs);
-    margin-top: calc(-1 * var(--gin-spacing-l));
-    margin-left: calc(-1 * var(--gin-spacing-l));
-    margin-right: calc(-1 * var(--gin-spacing-l));
-    margin-bottom: var(--gin-spacing-s);
+    margin-block-start: calc(-1 * var(--gin-spacing-l));
+    margin-inline-start: calc(-1 * var(--gin-spacing-l));
+    margin-inline-end: calc(-1 * var(--gin-spacing-l));
+    margin-block-end: var(--gin-spacing-s);
     background: var(--gin-bg-header);
     border: 0 none;
     border-radius: var(--gin-border-m) var(--gin-border-m) 0 0;
@@ -570,8 +570,8 @@ fieldset.collapsible.collapsed {
 .layout-block-add-row.form-item,
 .system-status-report td {
   padding: var(--gin-spacing-density-m) var(--gin-spacing-m);
-  border-top: 1px solid var(--gin-border-color);
-  border-bottom: none;
+  border-block-start: 1px solid var(--gin-border-color);
+  border-block-end: none;
 }
 
 .layout-block-add-row.odd {
@@ -673,13 +673,13 @@ fieldset.vbo-fieldset-select-all {
 .view-image-library.view-display-id-default {
   > .view-filters {
     .views-exposed-form {
-      margin-bottom: 0;
+      margin-block-end: 0;
     }
   }
   > .view-content {
     display: flex;
     flex-flow: row wrap;
-    margin-top: 0;
+    margin-block-start: 0;
 
     &:has(.image-library-image-selected) {
       .image-library-choose-file:not(.image-library-image-selected) {

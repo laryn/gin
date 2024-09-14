@@ -70,7 +70,7 @@
     position: relative;
 
     @media (forced-colors: active) {
-      border-bottom: 1px solid buttonBorder;
+      border-block-end: 1px solid buttonBorder;
     }
   }
 
@@ -79,7 +79,7 @@
     font-weight: var(--gin-font-weight-normal);
     color: #fff;
     width: 100%;
-    padding-right: var(--gin-spacing-xl);
+    padding-inline-end: var(--gin-spacing-xl);
     box-sizing: border-box;
   }
 
@@ -94,7 +94,7 @@
 
   .ui-widget-content.ui-dialog-buttonpane {
     padding: var(--gin-spacing-s) var(--gin-spacing-l);
-    border-top: 1px solid var(--gin-border-color-layer);
+    border-block-start: 1px solid var(--gin-border-color-layer);
     border-bottom-left-radius: var(--gin-border-m);
     border-bottom-right-radius: var(--gin-border-m);
     background: var(--gin-bg-app);
@@ -109,7 +109,7 @@
       height: auto;
 
       &:last-of-type {
-        margin-right: 0;
+        margin-inline-end: 0;
       }
     }
   }
@@ -122,7 +122,7 @@
   }
 
   .ui-dialog-buttonset {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   .ui-dialog-titlebar-close {
@@ -162,13 +162,13 @@
   }
 
   .ui-widget-content.ui-dialog-content {
-    padding-left: var(--gin-spacing-l);
-    padding-right: var(--gin-spacing-l);
+    padding-inline-start: var(--gin-spacing-l);
+    padding-inline-end: var(--gin-spacing-l);
     background: var(--gin-bg-layer);
   }
 
   .gin-layer-wrapper {
-    margin-bottom: var(--gin-spacing-l);
+    margin-block-end: var(--gin-spacing-l);
   }
 
   input,
@@ -180,8 +180,8 @@
   }
 
   .gin-confirm-form {
-    margin-top: var(--gin-spacing-m);
-    margin-bottom: var(--gin-spacing-s);
+    margin-block-start: var(--gin-spacing-m);
+    margin-block-end: var(--gin-spacing-s);
   }
 }
 
@@ -209,10 +209,10 @@ ul.paragraphs-add-dialog-list {
 
 .views-ui-dialog {
   .views-offset-bottom {
-    border-top: 1px solid var(--gin-border-color);
+    border-block-start: 1px solid var(--gin-border-color);
 
     @media (forced-colors: active) {
-      border-top: none;
+      border-block-start: none;
     }
   }
 }
@@ -267,8 +267,8 @@ table.treetable {
 }
 
 .ui-dialog .gin-layer-wrapper {
-  margin-bottom: var(--gin-spacing-l);
-  margin-top: var(--gin-spacing-l);
+  margin-block-end: var(--gin-spacing-l);
+  margin-block-start: var(--gin-spacing-l);
 }
 
 // Removes spacing from views dialog

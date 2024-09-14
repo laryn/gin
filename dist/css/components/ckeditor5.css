@@ -76,12 +76,8 @@
   border: 2px solid var(--gin-color-primary);
 }
 
-[dir="ltr"] .ck .ck-button.ck-source-editing-button {
-  padding-left: var(--gin-spacing-m);
-}
-
-[dir="rtl"] .ck .ck-button.ck-source-editing-button {
-  padding-right: var(--gin-spacing-m);
+.ck .ck-button.ck-source-editing-button {
+  padding-inline-start: var(--gin-spacing-m);
 }
 
 .ck.ck-button:not(.ck-disabled):hover {

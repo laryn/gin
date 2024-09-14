@@ -8,7 +8,7 @@
 
   .views-table {
     order: -1;
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   .views-bulk-form {
@@ -56,7 +56,7 @@
     > .form-item {
       color: var(--gin-color-text);
       font-weight: var(--gin-font-weight-semibold);
-      margin-right: var(--gin-spacing-xs);
+      margin-inline-end: var(--gin-spacing-xs);
     }
 
     .button-primary:not(:disabled, .is-disabled) {
