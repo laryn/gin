@@ -38,6 +38,8 @@
 .admin-bar {
   body.gin--horizontal-toolbar {
     &.crm-menubar-below-cms-menu {
+      padding-block-start: var(--gin-toolbar-height);
+
       > #civicrm-menu-nav {
         #civicrm-menu.sm-civicrm {
           @include mq(medium) {
@@ -78,4 +80,8 @@
       width: 24px;
     }
   }
+}
+
+.crm-menubar-visible .page-content {
+  margin-block-start: var(--gin-height-sticky);
 }

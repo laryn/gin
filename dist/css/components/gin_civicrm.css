@@ -34,6 +34,10 @@
   padding: .75rem 1.5rem;
 }
 
+.admin-bar body.gin--horizontal-toolbar.crm-menubar-below-cms-menu {
+  padding-block-start: var(--gin-toolbar-height);
+}
+
 @media (min-width: 61em) {
   .admin-bar body.gin--horizontal-toolbar.crm-menubar-below-cms-menu > #civicrm-menu-nav #civicrm-menu.sm-civicrm {
     height: 40px;
@@ -67,5 +71,9 @@
   background-color: #fff;
   height: 24px;
   width: 24px;
+}
+
+.crm-menubar-visible .page-content {
+  margin-block-start: var(--gin-height-sticky);
 }
 
