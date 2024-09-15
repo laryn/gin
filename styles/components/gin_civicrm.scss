@@ -12,6 +12,8 @@
 .crm-container {
   details.crm-accordion-bold {
     > summary {
+      width: calc(100% - 18px);
+
 
       &::before {
         // Hard-coding white for now since CiviCRM background is dark.
@@ -24,6 +26,11 @@
       > span:first-child {
         padding-inline-start: 1.5rem;
       }
+    }
+
+    > div.crm-accordion-body {
+      border-color: var(--gin-border-color);
+      padding: .75rem 1.5rem;
     }
   }
 }
