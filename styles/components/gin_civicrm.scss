@@ -27,3 +27,48 @@
     }
   }
 }
+
+.admin-bar {
+  body.gin--horizontal-toolbar {
+    &.crm-menubar-below-cms-menu {
+      > #civicrm-menu-nav {
+        #civicrm-menu.sm-civicrm {
+          @include mq(medium) {
+            height: 40px;
+            top: var(--gin-toolbar-height);
+            border: none;
+          }
+        }
+      }
+
+      .admin-bar--fixed .region-sticky {
+        @include mq(medium) {
+          top: calc(var(--gin-toolbar-height) + 40px);
+        }
+      }
+    }
+
+    &.crm-menubar-over-cms-menu {
+      .admin-bar--fixed .region-sticky {
+        @include mq(medium) {
+          top: 40px;
+        }
+      }
+    }
+  }
+}
+
+.crm-menubar-visible {
+  #civicrm-menu-nav {
+    .crm-logo-sm {
+      background-image: none;
+      mask-image: icon('civicrm');
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: #FFF;
+      height: 24px;
+      width: 24px;
+    }
+  }
+}

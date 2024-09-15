@@ -25,3 +25,38 @@
   padding-inline-start: 1.5rem;
 }
 
+@media (min-width: 61em) {
+  .admin-bar body.gin--horizontal-toolbar.crm-menubar-below-cms-menu > #civicrm-menu-nav #civicrm-menu.sm-civicrm {
+    height: 40px;
+    top: var(--gin-toolbar-height);
+    border: none;
+  }
+}
+
+@media (min-width: 61em) {
+  .admin-bar body.gin--horizontal-toolbar.crm-menubar-below-cms-menu .admin-bar--fixed .region-sticky {
+    top: calc(var(--gin-toolbar-height) + 40px);
+  }
+}
+
+@media (min-width: 61em) {
+  .admin-bar body.gin--horizontal-toolbar.crm-menubar-over-cms-menu .admin-bar--fixed .region-sticky {
+    top: 40px;
+  }
+}
+
+.crm-menubar-visible #civicrm-menu-nav .crm-logo-sm {
+  background-image: none;
+  -webkit-mask-image: url("../../media/sprite.svg#civicrm-view");
+          mask-image: url("../../media/sprite.svg#civicrm-view");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  background-color: #fff;
+  height: 24px;
+  width: 24px;
+}
+
