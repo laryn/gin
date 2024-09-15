@@ -60,19 +60,20 @@ function gin_preprocess_page(&$variables) {
   backdrop_add_library('gin', 'gin_tableselect');
 
   $module_libraries = [
-    'dashboard' => 'gin_dashboard',
+    'admin_bar' => 'gin_admin_bar',
+    'chosen' => 'gin_chosen',
     'ckeditor' => 'gin_ckeditor',
     'ckeditor5' => 'gin_ckeditor5',
     'civicrm' => 'gin_civicrm',
     'coffee' => 'gin_coffee',
-    'node_preview' => 'gin_node_preview',
-    'webform' => 'gin_webform',
-    'module_filter' => 'gin_module_filter',
-    'chosen' => 'gin_chosen',
+    'dashboard' => 'gin_dashboard',
+    'devel' => 'gin_devel',
     'inline_entity_form' => 'gin_inline_entity_form',
     'installer' => 'project_installer',
+    'module_filter' => 'gin_module_filter',
+    'node_preview' => 'gin_node_preview',
     'paragraphs' => 'gin_paragraphs',
-    'admin_bar' => 'gin_admin_bar',
+    'webform' => 'gin_webform',
   ];
 
   foreach ($module_libraries as $module => $library) {

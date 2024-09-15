@@ -284,6 +284,16 @@ function gin_library_info() {
         ),
       ),
     ),
+    'gin_devel' => array(
+      'title' => 'Devel',
+      'version' => BACKDROP_VERSION,
+      'css' => array(
+        $basethemeurl . '/dist/css/components/gin_devel.css' => array(
+          'type' => 'file',
+          'media' => 'screen',
+        ),
+      ),
+    ),
     'gin_node_preview' => array(
       'title' => 'Node preview',
       'version' => BACKDROP_VERSION,
