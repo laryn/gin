@@ -264,6 +264,16 @@ function gin_library_info() {
         $basethemeurl . '/dist/css/components/breadcrumb.css' => array(),
       ),
     ),
+    'gin_civicrm' => array(
+      'title' => 'CiviCRM',
+      'version' => BACKDROP_VERSION,
+      'css' => array(
+        $basethemeurl . '/dist/css/components/gin_civicrm.css' => array(
+          'type' => 'file',
+          'media' => 'screen',
+        ),
+      ),
+    ),
     'gin_coffee' => array(
       'title' => 'Coffee',
       'version' => BACKDROP_VERSION,

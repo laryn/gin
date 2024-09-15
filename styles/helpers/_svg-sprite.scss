@@ -35,6 +35,7 @@ $sprites: (
     'question': "../../media/sprite.svg#question-view",
     'status': "../../media/sprite.svg#status-view",
     'warning': "../../media/sprite.svg#warning-view",
+    'civicrm': "../../media/sprite.svg#civicrm-view",
     'announcement': "../../media/sprite.svg#announcement-view",
     'block': "../../media/sprite.svg#block-view",
     'blocks': "../../media/sprite.svg#blocks-view",
@@ -233,6 +234,10 @@ $sizes: (
     'warning': (
         'width': 24px,
         'height': 24px
+    ),
+    'civicrm': (
+        'width': 32px,
+        'height': 32px
     ),
     'announcement': (
         'width': 24px,

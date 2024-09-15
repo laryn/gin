@@ -1,0 +1,27 @@
+#admin-bar #admin-bar-wrapper > #admin-bar-menu > li > .dropdown > li > a.civicrm {
+  background-image: none;
+}
+
+#admin-bar .civicrm::before {
+  -webkit-mask-image: url("../../media/sprite.svg#civicrm-view");
+          mask-image: url("../../media/sprite.svg#civicrm-view");
+}
+
+.crm-container details.crm-accordion-bold > summary::before {
+  background-color: #fff;
+  content: "";
+  width: var(--gin-spacing-m);
+}
+
+[dir="ltr"] .crm-container details.crm-accordion-bold > summary::before {
+  left: unset;
+}
+
+[dir="rtl"] .crm-container details.crm-accordion-bold > summary::before {
+  right: unset;
+}
+
+.crm-container details.crm-accordion-bold > summary > span:first-child {
+  padding-inline-start: 1.5rem;
+}
+

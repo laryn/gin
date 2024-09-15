@@ -63,6 +63,7 @@ function gin_preprocess_page(&$variables) {
     'dashboard' => 'gin_dashboard',
     'ckeditor' => 'gin_ckeditor',
     'ckeditor5' => 'gin_ckeditor5',
+    'civicrm' => 'gin_civicrm',
     'coffee' => 'gin_coffee',
     'node_preview' => 'gin_node_preview',
     'webform' => 'gin_webform',

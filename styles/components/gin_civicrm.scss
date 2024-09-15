@@ -1,0 +1,29 @@
+#admin-bar {
+  #admin-bar-wrapper > #admin-bar-menu > li > .dropdown > li > a.civicrm {
+    // This can be removed when it's out of the CiviCRM Backdrop module.
+    background-image: none;
+  }
+
+  .civicrm::before {
+    mask-image: icon('civicrm');
+  }
+}
+
+.crm-container {
+  details.crm-accordion-bold {
+    > summary {
+
+      &::before {
+        // Hard-coding white for now since CiviCRM background is dark.
+        background-color: #fff;
+        left: unset;
+        content: "";
+        width: var(--gin-spacing-m);
+      }
+
+      > span:first-child {
+        padding-inline-start: 1.5rem;
+      }
+    }
+  }
+}
