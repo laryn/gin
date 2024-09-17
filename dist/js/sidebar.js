@@ -10,6 +10,7 @@
     init: function(context, settings) {
       const hideLabel = Backdrop.t("Hide sidebar panel"), sidebarFormId = settings.Gin.sidebar_form_id, actionsFormId = settings.Gin.actions_form_id, sidebarToggler = '<a href="#toggle-sidebar" class="meta-sidebar__trigger trigger" role="button" title="' + hideLabel + '" aria-controls="gin_sidebar"><span class="visually-hidden">' + hideLabel + "</span></a>";
       $("#backdrop-modal form").once("ginEditModalForm").addClass("gin-edit-modal-form"), 
+      $("#ckeditor5-modal form").once("ginEditModalForm").addClass("gin-edit-modal-form"), 
       $("#" + sidebarFormId + ":not(.gin-edit-modal-form)").once("gin-sidebar").each((function() {
         $("> div:first-child", this).addClass("layout-region-node-main"), actionsFormId ? $(".region-sticky .form-actions").prepend(sidebarToggler) : $(".form-actions", this).append(sidebarToggler), 
         $(this).append('<div id="gin_sidebar" class="layout-region-node-secondary"><span class="gin-sidebar-draggable" id="gin-sidebar-draggable"></span></div>'), 
