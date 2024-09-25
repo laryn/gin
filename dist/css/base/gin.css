@@ -6205,6 +6205,12 @@ tr:hover .diff-deletedline {
   background-color: transparent;
 }
 
+.layout-access-list li {
+  display: block;
+  clear: both;
+  padding-block-start: var(--gin-spacing-s);
+}
+
 .permissions .module {
   font-weight: var(--gin-font-weight-bold);
 }

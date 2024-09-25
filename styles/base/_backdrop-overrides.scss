@@ -784,3 +784,11 @@ tr:hover .diff-deletedline {
 .preview {
   background-color: transparent;
 }
+
+.layout-access-list {
+  li {
+    display: block;
+    clear: both;
+    padding-block-start: var(--gin-spacing-s);
+  }
+}
