@@ -6211,6 +6211,13 @@ tr:hover .diff-deletedline {
   padding-block-start: var(--gin-spacing-s);
 }
 
+/* Feeds UI */
+
+table.feeds-admin-importers tr.disabled.even, table.feeds-admin-importers tr.disabled.odd {
+  background-color: var(--gin-color-disabled-bg);
+  border-color: var(--gin-color-disabled-border);
+}
+
 .permissions .module {
   font-weight: var(--gin-font-weight-bold);
 }
