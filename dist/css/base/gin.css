@@ -1006,6 +1006,7 @@ table.update .layout-region-node-main > .form-wrapper:first-of-type .form-item,
 
 #views-display-menu-tabs a {
   padding: var(--gin-spacing-xs) var(--gin-spacing-m);
+  display: flex;
 }
 
 #views-display-menu-tabs a.views-display-disabled-link {
@@ -1048,7 +1049,6 @@ table.update .layout-region-node-main > .form-wrapper:first-of-type .form-item,
   background: transparent;
   border: 2px solid var(--gin-color-primary);
   border-radius: var(--gin-border-xs);
-  display: inline-block;
 }
 
 #views-display-menu-tabs .add a::before,

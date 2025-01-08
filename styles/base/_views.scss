@@ -263,6 +263,7 @@
 #views-display-menu-tabs {
   a {
     padding: var(--gin-spacing-xs) var(--gin-spacing-m);
+    display: flex;
 
     &.views-display-disabled-link {
       padding-inline-start: var(--gin-spacing-l);
@@ -295,7 +296,6 @@
     background: transparent;
     border: 2px solid var(--gin-color-primary);
     border-radius: var(--gin-border-xs);
-    display: inline-block;
 
     &::before {
       display: none !important;
