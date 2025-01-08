@@ -84,6 +84,7 @@ button.link:hover,
 [open] .claro-details__summary--vertical-tabs-item:hover,
 .vertical-tabs__menu-item.is-selected .vertical-tabs__menu-link:hover {
   color: var(--gin-color-primary-hover);
+  text-decoration: none;
 }
 
 a:active,

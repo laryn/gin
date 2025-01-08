@@ -19,6 +19,7 @@
 .ui-dialog [open] .claro-details__summary--vertical-tabs-item:hover,
 .ui-dialog .vertical-tabs__menu-item.is-selected .vertical-tabs__menu-link:hover {
   color: var(--gin-color-primary-hover);
+  text-decoration: none;
 }
 
 .ui-dialog a:active,
