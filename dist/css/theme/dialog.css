@@ -1139,3 +1139,37 @@
   margin-block-end: var(--gin-spacing-l);
 }
 
+.ui-dialog .user-simplified-page .site-name {
+  font-size: 1rem;
+  margin-block-end: 3rem;
+}
+
+.ui-dialog .user-simplified-page .login-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: .5rem;
+}
+
+.ui-dialog .user-simplified-page .login-links li {
+  margin: 0;
+}
+
+.ui-dialog .user-simplified-page .login-links li:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  -webkit-mask-image: url("../../media/sprite.svg#line-vertical-view");
+          mask-image: url("../../media/sprite.svg#line-vertical-view");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-position: center center;
+          mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  margin-inline-start: .5rem;
+  background-color: var(--gin-color-disabled);
+  width: 20px;
+  height: 14px;
+}
+
