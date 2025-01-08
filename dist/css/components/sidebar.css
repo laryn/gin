@@ -132,6 +132,12 @@ body[data-meta-sidebar=closed] .layout-region-node-secondary {
   background-color: var(--gin-bg-item-hover);
 }
 
+@media (max-width: 63.99em) {
+  .meta-sidebar__trigger {
+    display: none;
+  }
+}
+
 .meta-sidebar__close {
   z-index: 104;
   position: absolute;

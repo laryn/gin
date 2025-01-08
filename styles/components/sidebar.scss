@@ -126,6 +126,10 @@ body[data-meta-sidebar=open] {
     &.is-active {
       background-color: var(--gin-bg-item-hover);
     }
+
+    @include mq($to: large) {
+        display: none;
+    }
   }
 
   &__close {
