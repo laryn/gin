@@ -35,7 +35,14 @@
   line-height: 1;
   padding: 0;
   margin: 0;
-  z-index: 99;
+  // Needs to be higher than core Smart Menus z-index (998), just in case.
+  // e.g. When using Tonic and this admin menu appears on the front end.
+  z-index: 999;
+
+  &:has(~ .ui-dialog) {
+    // Modals appear underneath the toolbar unless we adjust this.
+    z-index: 99;
+  }
 
   li span.admin-bar-link-icon {
     display: none;
@@ -55,7 +62,6 @@
       &:focus,
       &.expanded-trail {
         color: var(--gin-color-primary-active);
-        background-color: var(--gin-bg-layer2);
         text-decoration: none;
       }
     }
@@ -95,12 +101,17 @@
       mask-position: center center;
     }
 
-    &:hover::before {
-      background-color: var(--gin-color-primary-active);
+    &:hover {
+      color: var(--gin-color-primary);
+      background: var(--gin-bg-layer2);
+
+      &::before {
+        background-color: var(--gin-color-primary-active);
+      }
     }
 
     &.active-trail {
-      color: var(--gin-color-primary-active);
+      color: var(--gin-color-primary);
       font-weight: var(--gin-font-weight-bold);
       background: var(--gin-bg-layer2);
 
@@ -110,9 +121,15 @@
     }
   }
 
-  #admin-bar-extra .dropdown .dropdown > li > a {
-    &::before {
-      display: none;
+  #admin-bar-extra .dropdown .dropdown > li {
+    &:hover {
+      background-color: transparent;
+    }
+
+    > a {
+      &::before {
+        display: none;
+      }
     }
   }
 
@@ -302,28 +319,30 @@
 }
 
 #admin-bar-wrapper {
-  display: flex;
   overflow: hidden;
   padding: 0 5px;
   background-color: var(--gin-bg-layer);
   box-shadow: 0 0 4px rgba(0, 0, 0, .1),
     0 2px 6px 2px rgba(0, 0, 0, .03);
 
-  @include mq(large) {
-    display: block;
+  #admin-bar-icon {
+    min-width: max-content;
   }
 
   #admin-bar-menu {
-    flex-grow: 1;
-    flex-basis: 60%;
+    // max-width: unset;
+  }
+
+  #admin-bar-alert {
+    min-width: 50px;
   }
 
   #admin-bar-extra {
-    flex-grow: 1;
-    flex-basis: 40%;
+    min-width: 100px;
   }
 
   > .dropdown {
+    max-width: max-content;
     background: transparent;
   }
 }
@@ -354,7 +373,8 @@
 }
 
 #admin-bar .top-level > li > ul {
-  display: inline-block;
+  display: flex;
+  flex-wrap: nowrap;
   left: auto;
   width: auto;
   right: auto;
@@ -364,6 +384,11 @@
 #admin-bar .top-level > li > ul > li {
   float: inline-start;
   width: auto;
+
+  a {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 }
 
 #admin-bar-menu.top-level > li > ul > li > a.active-trail {
@@ -388,13 +413,16 @@
   vertical-align: top;
 }
 
-#admin-bar li > a,
-#admin-bar li > span {
-  background: transparent none;
-  border: none;
-  font-weight: normal;
-  text-align: left;
-  text-decoration: none;
+#admin-bar li {
+
+  > a,
+  > span {
+    background: transparent none;
+    border: none;
+    font-weight: normal;
+    text-align: left;
+    text-decoration: none;
+  }
 }
 
 #admin-bar .dropdown li > a,
@@ -423,10 +451,6 @@
 #admin-bar .dropdown li li li {
   filter: Alpha(opacity=100);
   opacity: 1;
-
-  &.highlight {
-    background-color: var(--gin-color-primary-light);
-  }
 }
 
 /* Second-level lists. */
@@ -444,8 +468,15 @@
 
   & a:hover,
   & li:hover {
-    background-color: var(--gin-bg-layer);
-    border-radius: 0 0 var(--gin-border-s) var(--gin-border-s);
+    background-color: var(--gin-color-primary-light);
+    color: var(--gin-color-primary-active);
+  }
+
+  & li:last-child {
+    &:hover,
+    & a:hover {
+      border-radius: 0 0 var(--gin-border-s) var(--gin-border-s);
+    }
   }
 }
 
@@ -454,6 +485,7 @@
   margin: -32px 0 0 180px;
   border-radius: 0 var(--gin-border-s) var(--gin-border-s) 0;
 }
+
 #admin-bar-extra .dropdown li li.expandable ul {
   border-radius: var(--gin-border-s) 0 0 var(--gin-border-s);
 

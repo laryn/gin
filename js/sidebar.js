@@ -109,6 +109,10 @@
       const hideLabel = Backdrop.t('Hide sidebar panel');
       const sidebarTrigger = document.querySelector('.meta-sidebar__trigger');
 
+      if (!sidebarTrigger) {
+        return;
+      }
+
       sidebarTrigger.querySelector('span').innerHTML = hideLabel;
       sidebarTrigger.setAttribute('title', hideLabel);
       if (sidebarTrigger.nextSibling) {
@@ -123,6 +127,7 @@
       localStorage.setItem(chooseStorage, 'true');
 
       // Check which toolbar is active.
+      /*
       if (window.innerWidth < breakpointLarge) {
         Backdrop.ginCoreNavigation?.collapseToolbar();
 
@@ -132,6 +137,7 @@
           Backdrop.behaviors.ginNavigation?.collapseSidebar();
         }
       }
+      */
     },
 
     collapseSidebar: () => {
