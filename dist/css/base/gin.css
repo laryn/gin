@@ -6566,7 +6566,7 @@ div.autocomplete-deluxe-multiple {
 }
 
 .layout-flexible-editor .layout-editor-block-title {
-  margin-block-end: 0;
+  margin: 0;
 }
 
 .layout-flexible-editor .layout-editor-region-title .label {
