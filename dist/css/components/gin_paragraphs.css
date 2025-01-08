@@ -402,24 +402,16 @@ html.js .paragraph-type-icon {
 }
 
 .field-widget-paragraphs-embed input.form-submit {
-  padding-block: calc(var(--gin-spacing-xxs) 2px);
-  padding-inline: var(--gin-spacing-m) +;
+  padding-block: var(--gin-spacing-xxs);
+  padding-inline: var(--gin-spacing-m);
+  margin-block: var(--gin-spacing-xs);
+  margin-inline: var(--gin-spacing-xxs);
   border-radius: var(--gin-border-s);
   font-size: var(--gin-font-size-s);
   border: 1px solid var(--gin-color-primary);
   box-shadow: 0 1px 2px var(--gin-color-primary-light);
   transition: var(--gin-transition);
   font-weight: var(--gin-font-weight-normal);
-}
-
-[dir="ltr"] .field-widget-paragraphs-embed input.form-submit {
-  margin-block: var(--gin-spacing-xs);
-  margin-inline: 0 var(--gin-spacing-xxs);
-}
-
-[dir="rtl"] .field-widget-paragraphs-embed input.form-submit {
-  margin-block: var(--gin-spacing-xs);
-  margin-inline: var(--gin-spacing-xxs) 0;
 }
 
 .field-widget-paragraphs-embed input.field-add-more-submit {
